@@ -9,10 +9,11 @@ body {
     background-color:whitesmoke;
     font-family: 'Bebas Neue', sans-serif;
 }
+
+.mat-h1, .mat-headline, .mat-typography h1
 .mat-card  {
-    border: 3px solid black; 
-    border-radius: 0%
-  }
+    font-family: 'Bebas Neue', sans-serif;
+ }
 .mat-card:hover {
     background-color:rgb(63, 81, 181) ;
     border: 3px solid rgb(63, 81, 181);
@@ -43,25 +44,24 @@ body {
 }
 .productcontainer {
     margin: 20px;
-
 }
 .productinf {
-    border: 2px solid black;
+    border: 3px solid black;
     width: 50%;
-    padding-top: 120px;
+    padding-top: 0px;
     text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+
 }
 
 .productimg {
-    border-left: 2px solid black;
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
     justify-content: center;
     align-items: end;
     font-family: 'Bebas Neue', sans-serif;
     width: 50%;
-
-
 }
 
 .wrapper {
@@ -70,17 +70,31 @@ body {
     background-color: black;
     justify-content: center;
   }
+.wrapper.white {
+    max-width: 100%;
+    overflow: hidden;
+    background-color: white;
+    justify-content: center;
+    border-bottom: 3px solid black;
+  }
   
   .marquee {
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
-    animation: marquee 10s linear infinite;
+    animation: marquee 20s linear infinite;
   }
   
   .marquee p {
     display: inline-block;
     color: white;
+    font-size: 30px;
+    padding-top: 15px;
+  }
+
+  .marquee.white p {
+    display: inline-block;
+    color: black;
     font-size: 30px;
     padding-top: 15px;
   }

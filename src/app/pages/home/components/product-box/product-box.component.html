@@ -1,17 +1,21 @@
-<mat-card [ngClass]="{'text-center': !fullWidthMode}">
-    <div class="space-y-2 ">
-        <div class="flex justify-between">
-            <span class="">SHIRT</span>
-            <button class="text-red-400" mat-flat-button color="primary">{{'150' | currency}}</button>
-        </div>
-        <img class="mb-1 mx-auto h-[200px]"
-            [ngClass]="{'h-200px:':!fullWidthMode,'h-[360px]':fullWidthMode}"
-            src="https://via.placeholder.com/1080"/>
-            <div class="w-full">
-                <p class="truncate hover: whitespace-normal">Snickers</p>            
+<mat-card [ngClass]="{'text-left': !fullWidthMode}">
+
+    <div>  
+        <img class="w-full thumnail"
+            
+            src="assets/1.png"/>
+            <hr>
+            <div class="flex">
+                
+                <span class="w-full">Snickers</span>            
+                <span class="w-full">Snickers</span>            
+                
+            </div>
+            <hr>
+            <div class="flex ">
+                <button class="precio"  routerLink="/product">{{'150' | currency}}</button>
+                <span class="precio-oferta">{{'150' | currency}}</span>
             </div>
             
-            <button class="w-full" mat-flat-button color="primary" routerLink="/product">View Product</button>
     </div>
-
 </mat-card>

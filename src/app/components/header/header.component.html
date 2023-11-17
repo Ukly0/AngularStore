@@ -1,5 +1,5 @@
-<mat-toolbar class="max-w-7xl mx-auto border-x justify-between">
-    <a routerLink="home" style="color: white"> UKIY0</a>
+<mat-toolbar class="max-w mx-auto border-x justify-between">
+    <a routerLink="home" style="color: black"> UKIY0</a>
     <div class="flex navmenu">
         <button mat-icon-button>
             <mat-icon
@@ -12,41 +12,43 @@
         <button mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon
             [matBadge]="1"
-            matBadgeColor="warn"
             matBadgeSize="small"
             >shopping_cart</mat-icon>
         </button>
     </div>
-    <mat-menu #menu = "matMenu">
-        <div class="p-3 divide-y divide-solid">
-            <div class="pb-3 flex justify-between">
-                <span class="mr-16">1 items</span>
-                <a routerLink="cart">View Cart</a>
-            </div>
-            <div class="py-3">
-                <div class="flex justify-between font-light mb-2">
-                    keyborad x 1
-                    <span class="font-bold">{{ '150' | currency}}</span>
+    <mat-menu #menu = "matMenu" >
+        <div class="divide-y divide-solid" >
+            <div class="p-3">
+                <div class="pb-3 flex justify-between">
+                    <span class="mr-16">1 items</span>
+                    <a routerLink="cart">View Cart</a>
                 </div>
-                <div class="flex justify-between font-light mb-2">
-                    keyborad x 1
-                    <span class="font-bold">{{ '150' | currency}}</span>
+                
+                <div class="py-3">
+                    <div class="flex justify-between font-light mb-2">
+                        keyborad x 1
+                        <span class="font-bold">{{ '150' | currency}}</span>
+                    </div>
+                    <div class="flex justify-between font-light mb-2">
+                        keyborad x 1
+                        <span class="font-bold">{{ '150' | currency}}</span>
+                    </div>
+                    <div class="flex justify-between font-light mb-2">
+                        keyborad x 1
+                        <span class="font-bold">{{ '150' | currency}}</span>
+                    </div>
                 </div>
-                <div class="flex justify-between font-light mb-2">
-                    keyborad x 1
-                    <span class="font-bold">{{ '150' | currency}}</span>
+                <div class="flex justify-between py-3 font-light ">
+                    Total:
+                    <span class="font-bold">{{ '450' | currency}}</span>
                 </div>
             </div>
-            <div class="flex justify-between py-3 font-light ">
-                Total:
-                <span class="font-bold">{{ '450' | currency}}</span>
-            </div>
-            <div class=" pt-3 flex justify-between">
-                <button class="bg-rose-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
-                    <mat-icon> cancel</mat-icon>
+            <div class="flex  justify-between">
+                <button class="boton_cancelar">
+                    Cancelar
                 </button>
-                <button class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
-                    <mat-icon> cancel</mat-icon>
+                <button class="boton_aceptar">
+                    Aceptar
                 </button>
             </div>
             

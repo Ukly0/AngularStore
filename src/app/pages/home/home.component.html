@@ -2,34 +2,35 @@
 [autosize]="true"
 class="min-h-full max-w-7x1 mx-auto border-x">
     <!-- Barra Lateral -->
-    <mat-drawer mode="side" opened class="p-6">
+    <mat-drawer mode="side" opened class="p-6" >
         <app-filters (showCategory)="onShowCategory($event)"></app-filters>
     </mat-drawer>
-    <mat-drawer-content class="p-6">
+    <mat-drawer-content class="p-6 ">
         <app-products-header></app-products-header>
         <mat-grid-list 
-            gutterSize="16"
-            cols="3"
+            gutterSize="8"
+            [cols]="cols"
             rowHeight="400"
         >
             <mat-grid-tile>
-                <app-product-box class="w-full" [fullWidthMode]="cols === 1"></app-product-box>
+                <app-product-box class="w-full" ></app-product-box>
             </mat-grid-tile>
             <mat-grid-tile>
-                <app-product-box class="w-full" [fullWidthMode]="cols === 1"></app-product-box>
+                <app-product-box class="w-full" ></app-product-box>
             </mat-grid-tile>
             <mat-grid-tile>
-                <app-product-box class="w-full" [fullWidthMode]="cols === 1"></app-product-box>
+                <app-product-box class="w-full"></app-product-box>
             </mat-grid-tile>
             <mat-grid-tile>
-                <app-product-box class="w-full" [fullWidthMode]="cols === 1"></app-product-box>
+                <app-product-box class="w-full" ></app-product-box>
             </mat-grid-tile>
             <mat-grid-tile>
-                <app-product-box class="w-full" [fullWidthMode]="cols === 1"></app-product-box>
+                <app-product-box class="w-full" ></app-product-box>
             </mat-grid-tile>
             <mat-grid-tile>
-                <app-product-box class="w-full" [fullWidthMode]="cols === 1"></app-product-box>
+                <app-product-box class="w-full"></app-product-box>
             </mat-grid-tile>
+            
         </mat-grid-list>
         {{category}}
     </mat-drawer-content>

@@ -1,41 +1,65 @@
     
 
-    <div class="productcontainer flex justify-center">
-        <div class="productimg  ">
+    <div class=" flex justify-center">
+        <div class="productimg ">
             <img class="imgshadow mb-1 mx-auto h-[500px]"
-            src="https://milfshakes.es/cdn/shop/files/64ac12264eee44c51116eeb5_mockup16_3_1.webp?v=1691596141"/>
+            src="assets/1.png"/>
             <div class="wrapper">
                 <div class="marquee">
-                    <p>日本になれ </p>
-                  <p>
-                     - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
-                  </p>
-                  <p>日本になれ </p>
-                  <p>
-                    - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
-                  </p>
-                 
+                    <p>Lugia TShirt Japanese Street Wear -</p>
+                    <p>Lugia TShirt Japanese Street Wear -</p>
+                    <p>Lugia TShirt Japanese Street Wear -</p>
+                    <p>Lugia TShirt Japanese Street Wear -</p>
+                    <p>Lugia TShirt Japanese Street Wear -</p>
                 </div>
             </div>
         </div>
         <div class="productinf">
             <div class="wrapper white">
-                <div class="marquee white">
-                    <p>日本になれ </p>
-                  <p>
-                     - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
-                  </p>
-                  <p>日本になれ </p>
-                  <p>
-                    - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
-                  </p>
+                <div class="marquee title">
+                  <p>Lugia TShirt -</p>
+                  <p>Lugia TShirt -</p>
                 </div>
             </div>
             <div class="info">
-                <h1>UKIYO SHIRT</h1>
-                <p>{{'30' | currency}}</p>
-                <p>{{'25.99' | currency}}</p>
-                <p>Description</p>
+              <div class="product-title">
+                <h1>Lugia TShirt Japanese Street Wear</h1>
+              </div>
+
+            <div class="product-price">
+              <div class="product-categoria w-full">
+                <span class="categoria ">#TShirt</span> 
+                <span class="categoria ">#Pokemon</span>           
+              </div>
+              <div class="product-price-div">
+                <span class="span-precio">{{'30' | currency}}</span>
+                <span class="span-anterior">{{'25.99' | currency}}</span>
+              </div>   
+            </div>
+
+              <select  class="product-dropd-s">
+                <!-- Itera sobre la lista de opciones y crea una opción para cada elemento -->
+                <option  class="product-option-s" *ngFor="let opcion of tallas" [value]="opcion">
+                  {{ opcion }}
+                </option>
+              </select>
+              <select  class="product-dropd-c">
+                <!-- Itera sobre la lista de opciones y crea una opción para cada elemento -->
+                <option  class="product-option" *ngFor="let opcion of colores" [value]="opcion">
+                  {{ opcion }}
+                </option>
+              </select>
+              <div class="product-descripcion">
+                
+                <span > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin laoreet tortor ac dignissim placerat. Nam cursus augue quis augue posuere rhoncus. Etiam nec feugiat urna. Pellentesque sed congue lorem. Aliquam finibus, felis sit amet gravida ornare, nulla magna aliquam dui, eu dapibus odio diam facilisis purus. Nam ac magna nec magna lobortis congue. Curabitur mattis iaculis lorem, ut imperdiet orci vulputate ut. In arcu lorem, bibendum non auctor in, iaculis ut mi.
+                  In hac habitasse platea dictumst. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum mollis in mauris quis ornare. Aliquam pharetra scelerisque mauris, eu auctor neque fringilla eget. Aenean nec elit faucibus, sodales elit in, facilisis purus. Suspendisse ex dui, porta ac fringilla vel, tincidunt eu diam. Maecenas efficitur ornare est, at venenatis quam malesuada non. Praesent imperdiet, dui ac feugiat posuere, risus enim tincidunt dolor, sodales pulvinar eros metus quis lectus. Duis sollicitudin ornare enim quis accumsan. Mauris turpis velit, dictum ac gravida vel, auctor eu orci. </span>
+              </div>
+
+              <div class="product-b-add">
+                
+                
+              </div>  
+              
             </div>
             
 

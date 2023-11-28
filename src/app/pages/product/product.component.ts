@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-product',
@@ -10,5 +11,19 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  tallas = [
+    'S',
+    'M',
+    'L',
+    'XL'
+  ];
+
+  colores = [
+    'Black',
+    'White',
+  ];
+
+  opcionSeleccionada: string = '';
 
 }

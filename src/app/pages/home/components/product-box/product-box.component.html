@@ -1,19 +1,20 @@
-<mat-card [ngClass]="{'text-left': !fullWidthMode}">
+<mat-card class="productcard" routerLink="/product" [ngClass]="{'text-left': !fullWidthMode}">
 
     <div>  
-        <img class="w-full thumnail"
+        <img class="w-full thumbnail"
             
-            src="assets/1.png"/>
+            src="assets/2.png"/>
             <hr>
-            <div class="flex">
-                
-                <span class="w-full">Snickers</span>            
-                <span class="w-full">Snickers</span>            
-                
+            <div class="divtitulo">
+                <span class="titulo w-full">Lugia T-Shirt StreetWear</span>
+                <div class="divcategoria w-full">
+                    <span class="categoria ">#TShirt</span> 
+                    <span class="categoria ">#Pokemon</span>           
+                </div>            
             </div>
             <hr>
-            <div class="flex ">
-                <button class="precio"  routerLink="/product">{{'150' | currency}}</button>
+            <div class="divprecio">
+                <button class="precio">{{'150' | currency}}</button>
                 <span class="precio-oferta">{{'150' | currency}}</span>
             </div>
             

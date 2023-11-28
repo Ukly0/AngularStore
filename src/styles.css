@@ -2,20 +2,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 html, body { height: 100%; }
 
 :root{
   --colorAcento:#FFB900;
-  --colorAcento2:#1BAFD0;
+  --colorAcento2:#2EB67D;
+  --colorAcento3:#1BAFD0;
   --borderRadio: 3px;
   --borde: 3px solid black;
   --Sombra: 0.2rem 0.2rem black;
+  --ffamiliatitulo: 'Bebas Neue';
+  --ffamiliabody: 'Roboto Mono';
   
 }
+
+h1{
+  margin: 0 !important;
+  font-family: 'Bebas Neue' !important;
+  font-size: 32px !important;
+}
+
 body { 
     background-color:whitesmoke;
-    font-family: 'Bebas Neue', sans-serif !;
+    font-family: var(--ffamiliabody)  !important;
+
 }
 
 hr{
@@ -23,31 +37,31 @@ hr{
 }
 /* Div contiene categorias */
 .mat-drawer {
+  
   border-right: var(--borde);
   background-color: transparent;
 }
 /* Div categorias */
 .mat-expansion-panel{
+  font-family: var(--ffamiliatitulo) !important;
   border: var(--borde);
   border-radius: var(--borderRadio);
-  background-color: var(--colorAcento)
-  
-}
-
-.mat-expansion-panel:hover{
+  background-color: var(--colorAcento);
   box-shadow: var(--Sombra);
+
 }
 
 .mat-list-item-content{
-background-color: white;
-border-radius: var(--borderRadio);
-border: var(--borde);
-margin: 6px;
-transition: 0.3s ease;
+  font-family: var(--ffamiliabody) !important;
+  background-color: white;
+  border-radius: var(--borderRadio);
+  border: var(--borde);
+  margin: 6px;
+  transition: 0.3s ease;
 }
+
 .mat-list-option{
   display: none;
-  
 }
 
 .mat-list-option:active{
@@ -55,30 +69,62 @@ transition: 0.3s ease;
   box-shadow: none !important;
 }
 
-
-
 .mat-list-item-content:hover{
   box-shadow: var(--Sombra);
-  }
-
-
-.mat-h1, .mat-headline, .mat-typography h1
-.mat-card  {
-    font-family: 'Bebas Neue', sans-serif;
- }
+}
  
  .mat-badge-content {
   color: black;
   background: var(--colorAcento);
 }
 
+.thumbnail{
+  transition: background-color 0.3s ease-in-out;
+}
 
-
-.mat-card {
-  border: 3px solid black;
+.productcard {
+  font-family: var(--ffamiliabody);
+  border: 3px solid black !important;
   border-radius:var(--borderRadio)!important ;
+  display: flex;
   padding: 0px !important;
-  max-width:300px;
+  margin: 6px !important;
+  
+}
+
+.productcard:hover{
+  box-shadow: var(--Sombra);
+  
+}
+.productcard:hover .thumbnail{
+  background-color: var(--colorAcento3);
+  
+}
+
+.divtitulo{
+  padding-top: 6px;
+  padding-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  margin: 6px;
+}
+.divprecio{
+  font-family: Arial, Helvetica, sans-serif
+}
+.titulo{
+  margin-bottom: 16px;
+  font-size: 20px ;
+  font-weight: bold;
+}
+
+.categoria{
+  margin-right: 6px;
+  padding: 3px;
+  background-color: var(--colorAcento3);
+  font-weight: bold;
+  border-radius: var(--borderRadio);
+  border: var(--borde);
+  box-shadow: var(--Sombra);
 }
 
 .mat-grid-tile-content{
@@ -106,6 +152,7 @@ transition: 0.3s ease;
 #mat-menu-panel-0{
   box-shadow: var(--Sombra);
 }
+
 
 button.boton_cancelar{
   
@@ -137,9 +184,7 @@ button.precio{
   background-color: var(--colorAcento);
 }
 
-.mat-card:hover {
-  box-shadow: var(--Sombra);
-}
+
 .navmenu { 
     border: 3px solid black ;
     border-radius: var(--borderRadio);
@@ -157,35 +202,173 @@ button.precio{
     background-color: black;
 
 }
+
+
+.mat-card.cardtable{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0px ;
+
+}
+.mat-table{
+  background-color: transparent;
+  
+  text-align: center;
+}
+
+.mat-footer-row{
+  
+  border-bottom: var(--borde) !important;
+
+}
+.tfoot{
+  height: 50px;
+}
+
+.product-cell {
+  align-items: center; /* Centra verticalmente el contenido */
+  justify-content: center;
+  border-right: var(--borde);
+  border-bottom: var(--borde) !important;  /* Puedes ajustar el color y el grosor del borde según tus preferencias */
+ 
+}
+
+.cart-cell{
+  
+  border-bottom: var(--borde) !important;
+}
+
+.cart-th.ng-star-inserted{
+  height: 50px;
+  padding: 0px;
+  margin: 0px;
+}
+.mat-header-row {
+  height: 0px !important;
+  border-bottom: var(--borde) !important;
+}
+
+.cart-b-clearAll{
+  border-left: var(--borde);
+  width: 100%;
+  height: 100%;
+  background-color: var(--colorAcento3);
+}
+
+.cart-b-proceed{
+  border-left: var(--borde);
+  width: 100%;
+  height: 100%;
+  background-color: var(--colorAcento);
+}
+
+.cart-b-continue{
+  border-right: var(--borde);
+  width: 100%;
+  height: 100%;
+  
+}
+
 .product {
-    width: 100%;
-    height: 100vh; /* 100% de la altura de la ventana */
-    background-color: black; /* Solo para dar un ejemplo visual */
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 100vh; /* 100% de la altura de la ventana */
+  background-color: black; /* Solo para dar un ejemplo visual */
+  margin: 0;
+  padding: 0;
 }
-.productcontainer {
-    margin: 20px;
-}
+
 .productinf {
-    border: 3px solid black;
-    width: 50%;
-    padding-top: 0px;
-    text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
+  border-bottom: var(--borde);
+  border-left: var(--borde);
+  width: 50%;
+  height: 100vh;
+  padding-top: 0px;
+  
 }
 
 .productimg {
-    border-left: 3px solid black;
-    border-bottom: 3px solid black;
-    border-top: 3px solid black;
-    justify-content: center;
-    align-items: end;
-    font-family: 'Bebas Neue', sans-serif;
-    width: 50%;
+  
+  border-bottom: var(--borde);
+  justify-content: center;
+  align-items: end;
+  font-family: 'Bebas Neue', sans-serif;
+  height: 100vh;
+  margin: 0;
+  width: 50%;
 }
 
+.product-title{
+  background-color: var(--colorAcento);
+  display: flex;
+  height: fit-content;
+  width: 100%;
+  border-bottom: var(--borde);
+  align-items: center;
+  padding: 16px;
+}
 
+.product-categoria{
+  padding: 16px;
+}
+
+.product-dropd-s{
+  
+  width: 100%;
+  
+  font-size: 24px;
+  border-top: var(--borde);
+  background-color: transparent;
+  text-indent: 8px;
+
+  
+}
+
+.product-dropd-c{
+  
+  width: 100%;
+  font-size: 24px;
+  border-bottom: var(--borde);
+  border-top: var(--borde);
+  background-color: transparent;
+  text-indent: 8px;
+  
+}
+.product-option{
+  margin: 16px !important;
+  border: var(--borde) !important;
+}
+
+.product-descripcion{
+  margin: 16px;
+  padding: 16px;
+  border: var(--borde);
+  border-radius: var(--borderRadio);
+  box-shadow: var(--Sombra);
+}
+
+.product-price-div{
+  margin: 16px;
+  align-content: center;
+}
+
+.span-precio{
+  font-size: 24px;
+  font-weight: bold;
+  padding-right: 16px;
+}
+
+.span-anterior{
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+.td{
+  border:3px solid black !important;
+}
 
 .wrapper {
     max-width: 100%;
@@ -193,15 +376,26 @@ button.precio{
     background-color: black;
     justify-content: center;
   }
-.wrapper.white {
+  .wrapper.white {
     max-width: 100%;
+    align-items: center;
     overflow: hidden;
-    background-color: white;
+    background-color: transparent;
     justify-content: center;
     border-bottom: 3px solid black;
   }
+  .wrapper.yellow {
+    max-width: 100%;
+    overflow: hidden;
+    background-color: var(--colorAcento);
+    justify-content: center;
+    border-bottom: 3px solid black;
+    font-family: var(--ffamiliatitulo);
+    
+  }
   
   .marquee {
+    height: fit-content;
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
@@ -219,7 +413,15 @@ button.precio{
     display: inline-block;
     color: black;
     font-size: 30px;
-    padding-top: 15px;
+    
+  }
+
+  .marquee.title p {
+    display: inline-block;
+    color: black;
+    font-family: var(--ffamiliatitulo);
+    font-size: 250px;
+    padding-top: 100px;
   }
   
   @keyframes marquee {

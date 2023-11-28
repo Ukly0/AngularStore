@@ -1,27 +1,26 @@
 <mat-card class="cardtable" *ngIf="cart.items.length">
-    <table mat-table [dataSource]="dataSource"
-    class="w-full">
+    <table mat-table [dataSource]="dataSource" class="w-full">
         <ng-container matColumnDef="product">
-            <th class="product-cell"  *matHeaderCellDef>Product</th>
-            <td  *matCellDef="let element" class="product-cell">
-                <img class="p-6" src="{{element.product}}" alt="product" /> 
+            <th class="product-cell" *matHeaderCellDef>Product</th>
+            <td *matCellDef="let element" class="product-cell">
+                <img class="p-6" src="{{element.product}}" alt="product" />
             </td>
             <td class="cart-cell" *matFooterCellDef>
                 <button class="cart-b-continue" routerLink="/home">Continue shopping</button>
             </td>
         </ng-container>
         <ng-container matColumnDef="name">
-            <th  *matHeaderCellDef>Name</th>
+            <th *matHeaderCellDef>Name</th>
             <td class="cart-cell" *matCellDef="let element">
                 <span class="truncate max-w-xs block">{{element.name}}</span>
             <td mat-footer-cell *matFooterCellDef>
             </td>
         </ng-container>
         <ng-container matColumnDef="price">
-            <th  *matHeaderCellDef>Price</th>
-                <td class="cart-cell" *matCellDef="let element">
-                    {{element.price | currency}}
-                <td mat-footer-cell *matFooterCellDef>
+            <th *matHeaderCellDef>Price</th>
+            <td class="cart-cell" *matCellDef="let element">
+                {{element.price | currency}}
+            <td mat-footer-cell *matFooterCellDef>
             </td>
         </ng-container>
         <ng-container matColumnDef="quantity">
@@ -38,7 +37,7 @@
             </td>
         </ng-container>
         <ng-container matColumnDef="total">
-            <th  *matHeaderCellDef>Total</th>
+            <th *matHeaderCellDef>Total</th>
             <td class="cart-cell" *matCellDef="let element">{{ element.price *element.quantity | currency }} </td>
             <td mat-footer-cell *matFooterCellDef>
                 <span class="font-bold  block">
@@ -55,7 +54,7 @@
                     <mat-icon>close</mat-icon>
                 </button>
             <td class="cart-th" *matFooterCellDef>
-                <button class="cart-b-proceed" >
+                <button class="cart-b-proceed">
                     Prooceed To Checkout
                 </button>
             </td>

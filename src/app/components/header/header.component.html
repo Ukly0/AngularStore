@@ -1,6 +1,10 @@
+
 <mat-toolbar class="max-w mx-auto border-x justify-between">
-    <a routerLink="home" style="color: black"> UKIY0</a>
-    <div class="flex navmenu">
+    <a routerLink="home" class="custom-link">
+        <img src="assets\logo.png"  alt="Descripción de la imagen">
+      </a>
+      
+    <div class="flex navmenu-mobile">
         <button mat-icon-button>
             <mat-icon
             >local_shipping</mat-icon>
@@ -16,6 +20,21 @@
             >shopping_cart</mat-icon>
         </button>
     </div>
+
+    <li class="flex elements">
+        <ul class="allsides-1 ">Tracking</ul>
+        <ul class="allsides-1" >Catalog</ul>
+        <ul class="allsides-1" >About Us</ul>
+    </li>
+    <div class="flex navmenu-desktop">
+        
+        <button  class="button login">
+            Login
+        </button>
+        <button class="button cart" [matMenuTriggerFor]="menu" matBadge="1" matBadgeSize="medium">
+            Cart
+        </button>
+    </div>
     <mat-menu #menu = "matMenu" >
         <div class="divide-y divide-solid" >
             <div class="p-3">
@@ -24,7 +43,7 @@
                     <a routerLink="cart">View Cart</a>
                 </div>
                 
-                <div class="py-3">
+                <div class="py-2">
                     <div class="flex justify-between font-light mb-2">
                         keyborad x 1
                         <span class="font-bold">{{ '150' | currency}}</span>

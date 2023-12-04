@@ -5,19 +5,6 @@ class="min-h-full max-w-7x1 mx-auto border-x">
     <mat-drawer mode="side" opened class="p-6" >
         <app-filters (showCategory)="onShowCategory($event)"></app-filters>
     </mat-drawer>
-    <div class="wrapper">
-        <div class="marquee">
-            <p>日本になれ </p>
-            <p>
-             - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
-            </p>
-            <p>日本になれ </p>
-            <p>
-            - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
-            </p>
-             
-        </div>
-    </div> 
     <mat-drawer-content class="">
         <div class="wrapper yellow">
             <div class="marquee white">
@@ -32,12 +19,18 @@ class="min-h-full max-w-7x1 mx-auto border-x">
                  
             </div>
         </div> 
-        <app-products-header ></app-products-header>
+        
+        <div class="catalog-div ">
+            <div class=" catalog-div-items">
+                <mat-icon
+                >search</mat-icon>
+                <input  class="catalog-div-search" placeholder="Search..." type="text">
+            </div>
+        </div>
         <mat-grid-list class="m-10"
             gutterSize="8"
             [cols]="cols"
             rowHeight="500"
-
         >
             <mat-grid-tile>
                 <app-product-box class="w-full " ></app-product-box>

@@ -4,8 +4,8 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styles: [
-  ]
+  styleUrls : [ './home.css'],
+  
 })
 export class HomeComponent implements OnDestroy {
   private breakpointObserverSubscription: Subscription;

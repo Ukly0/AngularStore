@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 
-  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 html, body { height: 100%; }
 
@@ -18,6 +18,10 @@ html, body { height: 100%; }
   --ffamiliatitulo: 'Bebas Neue';
   --ffamiliabody: 'Roboto Mono';
   
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }
 
 h1{
@@ -186,16 +190,6 @@ button.precio{
 }
 
 
-.navmenu { 
-    border: 3px solid black ;
-    border-radius: var(--borderRadio);
-    padding-inline: 10px;
-    color: black;
-}
-.mat-toolbar {
-  
-  border-bottom: 3px solid black;
-}
 
 .contenedor{
     display: flex;
@@ -301,7 +295,6 @@ button.precio{
   width: 60%;
   
 }
-
 
 
 .productimg {

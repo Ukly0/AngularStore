@@ -14,7 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +26,17 @@ import { ProductBoxComponent } from './pages/home/components/product-box/product
 import { ProductComponent } from './pages/product/product.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/auth.service';
+import { GuardService } from './services/guard.service';
+import {AdminGuardService} from './services/admin-guard.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -36,9 +47,14 @@ import { FormsModule } from '@angular/forms';
     FiltersComponent,
     ProductBoxComponent,
     ProductComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent,
+    
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     LayoutModule,
     BrowserModule,
     AppRoutingModule,
@@ -56,9 +72,16 @@ import { FormsModule } from '@angular/forms';
     MatBadgeModule,
     MatSnackBarModule,
     MatSelectModule,
+    MatDialogModule,
     FormsModule,
+    ReactiveFormsModule,
+    
   ],
-  providers: [],
+  providers: [
+    UserService,
+    AuthService,
+    AdminGuardService,
+    GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

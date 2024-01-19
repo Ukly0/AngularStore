@@ -1,0 +1,83 @@
+<div class="navheader" >
+    <div class="header">
+        <h1 mat-dialog-title>Welcome!</h1>
+        <mat-icon mat-dialog-close>close</mat-icon>
+    </div>
+</div>
+<div [ngClass]="{'fade-out': isRegistering, 'fade-in': !isRegistering}">
+
+    <form [formGroup]="loginForm" *ngIf="!isRegistering" >
+        <input type="text" formControlName="email"  [(ngModel)]="email" placeholder="email" required>
+        <div *ngIf="loginForm.controls['email'].invalid &&  (loginForm.controls['email'].touched && loginForm.controls['email'].dirty)">
+                Email is required.
+            
+        </div>
+        <input type="password" formControlName="password" [(ngModel)]="password" placeholder="password"  required>
+        <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+                Password is required.
+        </div>
+        <span> or </span>
+
+        <button class="bgoogle" (click)="signInWithGoogle()" >
+            <img class=" mr-5 w-5 h-5" src="https://www.svgrepo.com/show/2778/google.svg" loading="lazy" alt="google logo">
+            <span >Login with Google</span>
+        </button>
+
+        <button class="bgoogle" (click)="signInWithFacebook()" >
+            <img class=" mr-5 w-6 h-6" src="https://www.svgrepo.com/show/3885/facebook.svg" loading="lazy" alt="facebook logo">
+            <span >Login with Meta</span>
+        </button>
+
+        <span class="clickable" (click)="toggleRegistering()">
+            {{isRegistering ? 'Sign In' : 'Create Account'}}
+        </span>
+        
+        
+            
+        <button  class="loginbutton" [disabled]="loginForm.invalid" (click)="signIn()" type="submit">Sign In</button>
+    </form>
+
+</div>
+
+<div [ngClass]="{'fade-out': !isRegistering, 'fade-in': isRegistering}">
+
+    <form [formGroup]="registerForm" *ngIf="isRegistering" [ngClass]="{'slide-out-left': !isRegistering, 'slide-in-right': isRegistering}">
+
+        <input type="fname" formControlName="fname"  [(ngModel)]="fname" placeholder="First Name" required>
+        <div *ngIf="registerForm.controls['fname'].invalid &&  (registerForm.controls['fname'].touched && registerForm.controls['fname'].dirty)">
+                First name is required.
+            
+        </div>
+
+        <input type="lname" formControlName="lname"  [(ngModel)]="lname" placeholder="Last Name" required>
+        <div *ngIf="registerForm.controls['lname'].invalid &&  (registerForm.controls['lname'].touched && registerForm.controls['lname'].dirty)">
+                Last name is required.
+            
+        </div>
+        <input type="text" formControlName="email"  [(ngModel)]="email" placeholder="email" required>
+        <div *ngIf="registerForm.controls['email'].invalid &&  (registerForm.controls['email'].touched && registerForm.controls['email'].dirty)">
+                Email is required.
+            
+        </div>
+        <input type="password" formControlName="password" [(ngModel)]="password" placeholder="password"  required>
+        <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+                Password is required.
+        </div>
+    
+        <span class="clickable" (click)="toggleRegistering()">
+        Already have an account?
+        </span>
+        
+        
+            
+        <button  class="loginbutton" [disabled]="registerForm.invalid" (click)="register()" type="submit">Register</button>
+    </form>
+
+</div>
+
+
+
+
+
+
+

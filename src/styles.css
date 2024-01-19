@@ -9,9 +9,9 @@
 html, body { height: 100%; }
 
 :root{
-  --colorAcento:#FFB900;
+  --colorAcento3:#FFB900;
   --colorAcento2:#2EB67D;
-  --colorAcento3:#1BAFD0;
+  --colorAcento:#1BAFD0;
   --borderRadio: 3px;
   --borde: 3px solid black;
   --Sombra: 0.2rem 0.2rem black;
@@ -28,6 +28,7 @@ h1{
   margin: 0 !important;
   font-family: 'Bebas Neue' !important;
   font-size: 32px !important;
+  color: black;
 }
 
 body { 
@@ -45,6 +46,15 @@ hr{
   
   border-right: var(--borde);
   background-color: transparent;
+}
+.mat-dialog-container{
+  width: 20rem !important;
+  box-shadow: var(--Sombra) !important;
+  border: var(--borde) !important;
+  padding: 0px !important;
+  
+  
+
 }
 /* Div categorias */
 .mat-expansion-panel{
@@ -137,11 +147,30 @@ hr{
   align-items: center !important;
   justify-content: center;
 }
-
-.mat-menu-content{
+.mat-menu-panel{
+  
+  margin-top: 0.5rem;
+  box-shadow: var(--Sombra);
   border-color: black;
+}
+
+
+.mat-menu-item{
+  font-family: var(--ffamiliabody) !important;
+  font-size: 18px;
+  
+  border-bottom: var(--borde) !important;
+  transition: 0.3s ease;
+  
+}
+
+.mat-menu-item:hover{
+  background-color: var(--colorAcento) !important;
+  font-weight: 800;
+}
+.mat-menu-content{
   border: 3px solid;
-  padding-bottom: 0px;
+  padding: 0px !important;
 }
 
 .mat-menu-content {

@@ -16,15 +16,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  
-
   constructor(
     private dialog:MatDialog,
     public auth: AuthService
   ) 
-  { 
-    
-  }
+
+  {}
 
   ngOnInit(): void {
     

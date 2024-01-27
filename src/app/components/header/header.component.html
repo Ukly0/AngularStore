@@ -60,6 +60,11 @@
                 <button mat-menu-item >My Orders</button>
                 <button mat-menu-item >Wishlist</button>
                 <button mat-menu-item (click)="LogOut()">Log Out</button>
+            <ng-container *ngIf="auth.user$ | async as user">
+                <button mat-menu-item admin (click)="LogOut()">Orders</button>
+                <button mat-menu-item admin (click)="LogOut()">Users</button>
+                <button mat-menu-item admin (click)="LogOut()">Products</button>
+            </ng-container>
         </div>
     </mat-menu>
     

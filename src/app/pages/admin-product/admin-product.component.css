@@ -1,0 +1,82 @@
+.container-form {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.dual-form{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.dropDown-seasons-panel {
+  border-radius: 10px !important;
+  border: 1px solid gray !important;
+  position: absolute !important;
+  top: 50px !important;
+}
+
+
+.thumnail {
+  width: 200px;
+  height: auto;
+  border: var(--borde);
+  border-radius: var(--borderRadio);
+  box-shadow: var(--Sombra);
+}
+
+.container {
+  min-height: 100vh;
+  width: 50%;
+  border-right: var(--borde);
+}
+
+.card {
+  padding: 2rem;
+  
+  min-width: 60%;
+}
+
+.img-display {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  width: 100%;
+  gap: 1rem;
+
+  border-top: var(--borde);
+}
+
+.delete-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2rem;
+  width: 2rem;
+  border-radius: var(--borderRadio);
+  border: var(--borde);
+  background-color: var(--colorAcento2);
+  color: black;
+  
+}
+
+.image-container {
+  
+  position: relative;
+  display: inline-block;
+}
+.flex-container{
+  display: flex;
+  justify-content: space-between;
+}
+

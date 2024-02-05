@@ -5,6 +5,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user.model';
 
 
 @Component({
@@ -16,18 +17,18 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  
+  user: User | null = null;
 
   constructor(
-    private dialog:MatDialog,
-    public auth: AuthService
-  ) 
-  { 
-    
+    private dialog: MatDialog,
+    public auth: AuthService,
+  ) {
+    auth.getUser().subscribe(user => this.user = user);
   }
 
+  
   ngOnInit(): void {
-    
+
   }
 
   LogOut(){

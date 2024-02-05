@@ -11,8 +11,9 @@ img{
     margin-left: 0.5rem;
 }
 /* Controla el alto de la fila */
-.mat-toolbar-single-row{
+.mat-toolbar{
     height: auto;
+    z-index: 1000;
 }
 .elements{
     display: flex;

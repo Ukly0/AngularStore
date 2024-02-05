@@ -1,15 +1,13 @@
-export class Product {
-    id: number;
-    img: string;
-    nombre: string;
-    precio: number;
-    descripcion: string;
+export interface Product {
+    key?: string;
+    title: string;
+    price: number;
+    offerPrice?: number;
+    category: string;
+    themes: string[];
+    sizes: string[];
+    colors: string[];
+    description: string;
+    images: string[]; // Aquí se almacenarán las URLs de las imágenes
   
-    constructor(id: number, img: string, nombre: string, precio: number, descripcion: string) {
-      this.id = id;
-      this.nombre = nombre;
-      this.precio = precio;
-      this.descripcion = descripcion;
-      this.img = img
-    }
   }

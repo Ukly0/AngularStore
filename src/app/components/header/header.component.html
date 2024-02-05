@@ -60,6 +60,7 @@
                 <button mat-menu-item >My Orders</button>
                 <button mat-menu-item >Wishlist</button>
                 <button mat-menu-item (click)="LogOut()">Log Out</button>
+                <button mat-menu-item *ngIf="user?.isAdmin" routerLink="products-list"> Admin Products</button>
         </div>
     </mat-menu>
     

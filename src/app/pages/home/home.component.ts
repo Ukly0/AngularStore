@@ -35,7 +35,6 @@ export class HomeComponent implements OnDestroy {
   private calculateCols(windowWidth: number): number {
     if (windowWidth >= 1200) {
       return 4;
-
     } else if (windowWidth >= 1000) {
       return 3;
     } else if (windowWidth >= 600) {

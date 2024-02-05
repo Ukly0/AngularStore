@@ -3,70 +3,68 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+html,
+body {
+  height: 100%;
+}
 
-html, body { height: 100%; }
-
-:root{
-  --colorAcento3:#FFB900;
-  --colorAcento2:#2EB67D;
-  --colorAcento:#1BAFD0;
+:root {
+  --colorAcento3: #ffb900;
+  --colorAcento2: #2eb67d;
+  --colorAcento: #1bafd0;
   --borderRadio: 3px;
   --borde: 3px solid black;
   --Sombra: 0.2rem 0.2rem black;
-  --ffamiliatitulo: 'Bebas Neue';
-  --ffamiliabody: 'Roboto Mono';
-  
+  --ffamiliatitulo: "Bebas Neue";
+  --ffamiliabody: "Roboto Mono";
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
   outline: none;
 }
 
-h1{
+h1 {
   margin: 0 !important;
-  font-family: 'Bebas Neue' !important;
+  font-family: "Bebas Neue" !important;
   font-size: 32px !important;
   color: black;
 }
 
-body { 
-    background-color:whitesmoke;
-    font-family: var(--ffamiliabody)  !important;
-    height: 100% !important;
-
+body {
+  background-color: whitesmoke;
+  font-family: var(--ffamiliabody) !important;
+  height: 100% !important;
 }
 
-hr{
-  border-top:3px solid black;
+hr {
+  border-top: 3px solid black;
 }
+
+
 /* Div contiene categorias */
 .mat-drawer {
-  
   border-right: var(--borde);
   background-color: transparent;
 }
-.mat-dialog-container{
+.mat-dialog-container {
   width: 20rem !important;
   box-shadow: var(--Sombra) !important;
   border: var(--borde) !important;
   padding: 0px !important;
-  
-  
-
 }
 /* Div categorias */
-.mat-expansion-panel{
+.mat-expansion-panel {
   font-family: var(--ffamiliatitulo) !important;
   border: var(--borde);
   border-radius: var(--borderRadio);
   background-color: var(--colorAcento);
   box-shadow: var(--Sombra);
-
 }
 
-.mat-list-item-content{
+.mat-list-item-content {
   font-family: var(--ffamiliabody) !important;
   background-color: white;
   border-radius: var(--borderRadio);
@@ -75,64 +73,61 @@ hr{
   transition: 0.3s ease;
 }
 
-.mat-list-option{
+.mat-list-option {
   display: none;
 }
 
-.mat-list-option:active{
+.mat-list-option:active {
   background-color: transparent !important;
   box-shadow: none !important;
 }
 
-.mat-list-item-content:hover{
+.mat-list-item-content:hover {
   box-shadow: var(--Sombra);
 }
- 
- .mat-badge-content {
+
+.mat-badge-content {
   color: black;
   background: var(--colorAcento);
 }
 
-.thumbnail{
+.thumbnail {
   transition: background-color 0.3s ease-in-out;
 }
 
 .productcard {
   font-family: var(--ffamiliabody);
   border: 3px solid black !important;
-  border-radius:var(--borderRadio)!important ;
+  border-radius: var(--borderRadio) !important ;
   display: flex;
   padding: 0px !important;
   margin: 6px !important;
-  
 }
 
-.productcard:hover{
+.productcard:hover {
   box-shadow: var(--Sombra);
-  
 }
-.productcard:hover .thumbnail{
+.productcard:hover .thumbnail {
   background-color: var(--colorAcento3);
-  
 }
 
-.divtitulo{
+.divtitulo {
   padding-top: 6px;
   padding-bottom: 6px;
   display: flex;
   flex-direction: column;
   margin: 6px;
 }
-.divprecio{
-  font-family: Arial, Helvetica, sans-serif
+.divprecio {
+  font-family: Arial, Helvetica, sans-serif;
 }
-.titulo{
+.titulo {
   margin-bottom: 16px;
-  font-size: 20px ;
+  font-size: 20px;
   font-weight: bold;
 }
 
-.categoria{
+.categoria {
   margin-right: 6px;
   padding: 3px;
   background-color: var(--colorAcento3);
@@ -142,33 +137,30 @@ hr{
   box-shadow: var(--Sombra);
 }
 
-.mat-grid-tile-content{
+.mat-grid-tile-content {
   padding: 24px;
   align-items: center !important;
   justify-content: center;
 }
-.mat-menu-panel{
-  
+.mat-menu-panel {
   margin-top: 0.5rem;
   box-shadow: var(--Sombra);
   border-color: black;
 }
 
-
-.mat-menu-item{
+.mat-menu-item {
   font-family: var(--ffamiliabody) !important;
   font-size: 18px;
-  
+
   border-bottom: var(--borde) !important;
   transition: 0.3s ease;
-  
 }
 
-.mat-menu-item:hover{
+.mat-menu-item:hover {
   background-color: var(--colorAcento) !important;
   font-weight: 800;
 }
-.mat-menu-content{
+.mat-menu-content {
   border: 3px solid;
   padding: 0px !important;
 }
@@ -180,75 +172,64 @@ hr{
 .mat-menu-content.ng-tns-c50-0 {
   padding-top: 8px;
   padding-bottom: 0px !important;
-  
 }
 
-#mat-menu-panel-0{
+#mat-menu-panel-0 {
   box-shadow: var(--Sombra);
 }
 
-
-button.boton_cancelar{
-  
+button.boton_cancelar {
   border-top: var(--borde);
-  
+
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 5px;
-  padding-bottom:5px ;
+  padding-bottom: 5px;
 }
 
-button.boton_aceptar{
-
-    
+button.boton_aceptar {
   border-top: var(--borde);
   border-left: var(--borde);
   background-color: var(--colorAcento);
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 5px;
-  padding-bottom:5px ;
+  padding-bottom: 5px;
 }
 
-button.precio{
-  border:3px solid black ;
+button.precio {
+  border: 3px solid black;
   border-radius: var(--borderRadio);
   padding: 6px;
   margin: 6px;
   background-color: var(--colorAcento);
 }
 
-
-
-.contenedor{
-    display: flex;
-    overflow: hidden;
-    background-color: black;
-
+.contenedor {
+  display: flex;
+  overflow: hidden;
+  background-color: black;
 }
 
-
-.mat-card.cardtable{
+.mat-card.cardtable {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
   box-shadow: none;
-  padding: 0px ;
-
+  padding: 0px;
 }
-.mat-table{
+.mat-table {
   background-color: transparent;
-  
+
   text-align: center;
 }
 
-.mat-footer-row{
-  
-  border-bottom: var(--borde) !important;
 
+.mat-footer-row {
+  border-bottom: var(--borde) !important;
 }
-.tfoot{
+.tfoot {
   height: 50px;
 }
 
@@ -256,16 +237,16 @@ button.precio{
   align-items: center; /* Centra verticalmente el contenido */
   justify-content: center;
   border-right: var(--borde);
-  border-bottom: var(--borde) !important;  /* Puedes ajustar el color y el grosor del borde según tus preferencias */
- 
+  border-bottom: var(
+    --borde
+  ) !important; /* Puedes ajustar el color y el grosor del borde según tus preferencias */
 }
 
-.cart-cell{
-  
+.cart-cell {
   border-bottom: var(--borde) !important;
 }
 
-.cart-th.ng-star-inserted{
+.cart-th.ng-star-inserted {
   height: 50px;
   padding: 0px;
   margin: 0px;
@@ -275,25 +256,24 @@ button.precio{
   border-bottom: var(--borde) !important;
 }
 
-.cart-b-clearAll{
+.cart-b-clearAll {
   border-left: var(--borde);
   width: 100%;
   height: 100%;
   background-color: var(--colorAcento3);
 }
 
-.cart-b-proceed{
+.cart-b-proceed {
   border-left: var(--borde);
   width: 100%;
   height: 100%;
   background-color: var(--colorAcento);
 }
 
-.cart-b-continue{
+.cart-b-continue {
   border-right: var(--borde);
   width: 100%;
   height: 100%;
-  
 }
 
 .product {
@@ -304,33 +284,30 @@ button.precio{
   padding: 0;
 }
 
-.productglobal{
+.productglobal {
   box-sizing: border-box;
   display: flex;
   width: 100vw;
   min-height: 100vh;
   border-bottom: var(--borde);
-  
 }
 
 .productinf {
   display: flex;
   flex-direction: column;
-  
+
   border-left: var(--borde);
-  
+
   min-height: 100vh;
   padding-top: 0px;
   width: 60%;
-  
 }
-
 
 .productimg {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   height: fit-content;
   margin: 0;
   width: 40%;
@@ -342,27 +319,27 @@ button.precio{
   object-fit: cover; /* o "contain" según tus necesidades */
 }
 @media only screen and (min-width: 767px) {
-  .productinf img{
+  .productinf img {
     display: none;
   }
 }
 @media only screen and (max-width: 767px) {
-  .productimg{
+  .productimg {
     display: none; /* Cambia a un diseño de columna para pantallas más pequeñas */
   }
-  .productinf{
+  .productinf {
     border-left: none;
     width: 100%; /* Cambia a un diseño de columna para pantallas más pequeñas */
   }
 
-  .productinf img{
+  .productinf img {
     width: 100%;
-    height:100%;
+    height: 100%;
     object-fit: contain; /* o "contain" según tus necesidades */
     border-bottom: var(--borde);
   }
 }
-.product-title{
+.product-title {
   background-color: var(--colorAcento3);
   display: flex;
   flex-direction: row;
@@ -373,25 +350,21 @@ button.precio{
   padding: 16px;
 }
 
-.product-categoria{
+.product-categoria {
   padding: 16px;
 }
 
-.product-dropd-s{
-  
+.product-dropd-s {
   width: 100%;
-  
+
   font-size: 24px;
   border-top: var(--borde);
   background-color: transparent;
   text-indent: 8px;
   height: 64px;
-
-  
 }
 
-.product-dropd-c{
-  
+.product-dropd-c {
   width: 100%;
   font-size: 24px;
   border-bottom: var(--borde);
@@ -399,14 +372,13 @@ button.precio{
   background-color: transparent;
   text-indent: 8px;
   height: 64px;
-  
 }
-.product-option{
+.product-option {
   margin: 16px !important;
   border: var(--borde) !important;
 }
 
-.product-descripcion{
+.product-descripcion {
   margin: 16px;
   padding: 16px;
   border: var(--borde);
@@ -414,109 +386,100 @@ button.precio{
   box-shadow: var(--Sombra);
 }
 
-.product-price-div{
+.product-price-div {
   margin: 16px;
   align-content: center;
 }
 
-.span-precio{
+.span-precio {
   font-size: 32px;
   font-weight: bold;
   padding-right: 16px;
 }
 
-.span-anterior{
+.span-anterior {
   font-size: 16px;
   font-weight: 400;
-  
 }
 
-.product-add{
+.product-add {
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
 }
 
-
-.product-b-add{
+.product-b-add {
   width: 100%;
   background-color: var(--colorAcento);
   height: 64px;
   font-family: var(--ffamiliatitulo);
   font-size: 48px;
-  border-top:var(--borde) ;
+  border-top: var(--borde);
 }
 
-.td{
-  border:3px solid black !important;
+.td {
+  border: 3px solid black !important;
 }
 
 .wrapper {
-    width: 100%;
-    overflow: hidden;
-    background-color: black;
-    justify-content: center;
-  }
-  .wrapper.white {
-    max-width: 100%;
-    height: fit-content;
-    align-items: center;
-    overflow: hidden;
-    background-color: transparent;
-    justify-content: center;
-    border-bottom: 3px solid black;
-  }
-  .wrapper.yellow {
-    max-width: 100%;
-    overflow: hidden;
-    background-color: var(--colorAcento);
-    justify-content: center;
-    border-bottom: 3px solid black;
-    font-family: var(--ffamiliatitulo);
-    
-  }
-  
-  
-  .marquee {
-    height: fit-content;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    animation: marquee 20s linear infinite;
-  }
-  
-  .marquee p {
-    
-    display: inline-block;
-    color: white;
-    font-size: 30px;
-    padding-top: 15px;
-  }
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+  justify-content: center;
+}
+.wrapper.white {
+  max-width: 100%;
+  height: fit-content;
+  align-items: center;
+  overflow: hidden;
+  background-color: transparent;
+  justify-content: center;
+  border-bottom: 3px solid black;
+}
+.wrapper.yellow {
+  max-width: 100%;
+  overflow: hidden;
+  background-color: var(--colorAcento);
+  justify-content: center;
+  border-bottom: 3px solid black;
+  font-family: var(--ffamiliatitulo);
+}
 
-  .marquee.white p {
-    display: inline-block;
-    color: black;
-    font-size: 30px;
-    
-  }
+.marquee {
+  height: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
 
-  .marquee.title p {
-    display: inline-block;
-    color: black;
-    font-family: var(--ffamiliatitulo);
-    font-size: 250px;
-    padding-top: 100px;
-  }
-  
-  @keyframes marquee {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(-50%, 0, 0);
-    }
-  }
+.marquee p {
+  display: inline-block;
+  color: white;
+  font-size: 30px;
+  padding-top: 15px;
+}
 
- 
+.marquee.white p {
+  display: inline-block;
+  color: black;
+  font-size: 30px;
+}
 
+.marquee.title p {
+  display: inline-block;
+  color: black;
+  font-family: var(--ffamiliatitulo);
+  font-size: 250px;
+  padding-top: 100px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

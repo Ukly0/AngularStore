@@ -1,0 +1,36 @@
+<div class="container">
+    <div  class="div-button-add">
+        <button routerLink="/add-product" class="button-add">
+            Add Product</button>
+    </div>
+    <div class="catalog-div ">
+        <div class=" catalog-div-items">
+            <mat-icon
+            >search</mat-icon>
+            <input  class="catalog-div-search" placeholder="Search..." type="text">
+        </div>
+    </div>
+
+    <table class="my-8">
+        <thead>
+            <tr>
+                <th>Imagenes</th>
+                <th>Title</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí puedes iterar sobre los productos y generar las filas de la tabla -->
+            <tr *ngFor="let product of products">
+                <td><img class="thumnail" src={{product.images[0]}} ></td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.colors }}</td>
+                <td>{{ product.themes }}</td>
+                <td><button [routerLink]="['/add-product',product.key]"><mat-icon matSuffix>edit_note</mat-icon></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

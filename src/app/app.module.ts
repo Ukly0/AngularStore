@@ -15,6 +15,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,7 +39,12 @@ import { AuthService } from './services/auth.service';
 import { GuardService } from './services/guard.service';
 import {AdminGuardService} from './services/admin-guard.service';
 import { UserService } from './services/user.service';
+import { AdminListProductComponent } from './pages/admin-list-product/admin-list-product.component';
+import { AdminProductComponent } from './pages/admin-product/admin-product.component';
+import { CategoryService } from './services/category.service';
+import { ProductService } from './services/product.service';
 
+import { provideStorage,getStorage } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,10 +56,15 @@ import { UserService } from './services/user.service';
     ProductComponent,
     CartComponent,
     LoginComponent,
+    AdminListProductComponent,
+    AdminProductComponent,
     
   ],
   imports: [
+    
     AngularFireModule.initializeApp(environment.firebase),
+    
+    provideStorage(() => getStorage()),
     AngularFireAuthModule,
     AngularFirestoreModule,
     LayoutModule,
@@ -75,13 +87,17 @@ import { UserService } from './services/user.service';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     UserService,
     AuthService,
     AdminGuardService,
-    GuardService],
+    GuardService,
+    CategoryService,
+    ProductService,],
+    
   bootstrap: [AppComponent]
 })
 export class AppModule { }

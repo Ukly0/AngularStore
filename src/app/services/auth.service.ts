@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
-import { GoogleAuthProvider, FacebookAuthProvider, User } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
+import { GoogleAuthProvider, FacebookAuthProvider } from '@angular/fire/auth';
+import { Observable, of, switchMap } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { UserService } from './user.service';
 
-
+import { User } from '../models/user.model';
 
 
 
@@ -75,6 +75,12 @@ export class AuthService {
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  getUser(): Observable<User | null> {
+    return this.afAuth.user.pipe(
+      switchMap((user) => user ? this.userServ.get(user.uid).valueChanges() : of(null))
+    )
   }
 
 

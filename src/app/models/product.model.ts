@@ -3,7 +3,7 @@ export interface Product {
     title: string;
     price: number;
     offerPrice?: number;
-    category: string;
+    categories: string;
     themes: string[];
     sizes: string[];
     colors: string[];

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints,BreakpointState  } from '@angular/cdk/layout';
 import { Subscription } from 'rxjs';
+import { CategoryService } from 'src/app/services/category.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,10 +27,6 @@ export class HomeComponent implements OnDestroy {
   }
 
   ngOnInit(): void {
-  }
-
-  onShowCategory(newCategory: string): void{
-    this.category = newCategory
   }
 
   private calculateCols(windowWidth: number): number {

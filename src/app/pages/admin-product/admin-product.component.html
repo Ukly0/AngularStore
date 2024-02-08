@@ -68,7 +68,7 @@
         <mat-form-field appearance="outline">
           <mat-label for="categories">Categories:</mat-label>
           <mat-select
-            [(ngModel)]="product.category"
+            [(ngModel)]="product.categories"
             name="categories"
             placeholder="Categories"
             #categories="ngModel"
@@ -153,10 +153,11 @@
         Choose File
       </button>
       <input
-        [(ngModel)]="product.images"
         hidden
+        name="inputFile"
         (change)="onFileChange($event)"
         #fileInput
+        accept="image/*"
         type="file"
         multiple
       />
@@ -187,7 +188,7 @@
       <mat-card  class="productcard">
         <div>
           <img class="w-full thumbnail" src={{imagePreviews[0]}} />
-          <img *ngIf="product.images and !imagePreviews[0]" class="w-full thumbnail" src={{product.images[0]}} />
+          <img *ngIf="product.images && !imagePreviews[0]" class="w-full thumbnail" src={{product.images[0]}} />
           <hr />
           <div class="divtitulo">
             <span  class="titulo w-full">{{title.value}}</span>

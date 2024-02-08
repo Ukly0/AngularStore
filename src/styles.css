@@ -17,6 +17,7 @@ body {
   --borderRadio: 3px;
   --borde: 3px solid black;
   --Sombra: 0.2rem 0.2rem black;
+  --Sombra2: 0.0rem 0.2rem black;
   --ffamiliatitulo: "Bebas Neue";
   --ffamiliabody: "Roboto Mono";
 }

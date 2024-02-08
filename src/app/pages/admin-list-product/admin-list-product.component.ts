@@ -23,9 +23,15 @@ export class AdminListProductComponent implements OnInit, OnDestroy {
 
   }
 
-  fileter(query: string){  
+  filtertable(query: string){  
+    console.log(query);
     this.filter = (query) ?
     this.products.filter((p: { title: string; }) => p.title.toLowerCase().includes(query.toLowerCase())) : this.products;
+    console.log(this.filter);
+  }
+
+  deleteProduct(id: any){
+    this.productService.delete(id);
   }
 
   ngOnInit(): void {}

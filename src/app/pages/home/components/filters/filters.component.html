@@ -1,11 +1,10 @@
-<mat-expansion-panel *ngIf="categories">
-    <mat-expansion-panel-header>
-        <mat-panel-title> CATEGORIES </mat-panel-title>
-    </mat-expansion-panel-header>
-
-    <mat-selection-list [multiple]="false">
-        <mat-list-option *ngFor="let category of categories" [value]="category">
-            <button (click)="onShowCategory(category)">{{category}}</button>
-        </mat-list-option>
-    </mat-selection-list>
-</mat-expansion-panel>
+<div class="filter-container" >
+    <label class="">Categories</label>     
+    <div class="filters">
+        <button class="filter" *ngFor="let category of categories$ |async" >{{category.name}}</button>
+    </div> 
+    <label class="d">Themes</label>
+    <div class="filters">
+        <button class="filter" *ngFor="let t of themes$ | async" >{{t.name}}</button>
+    </div> 
+</div>

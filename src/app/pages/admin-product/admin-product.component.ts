@@ -1,15 +1,11 @@
 import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { CategoryService } from "src/app/services/category.service";
-import { MatIconModule } from "@angular/material/icon";
-import { MatInputModule } from "@angular/material/input";
-import { MatFormFieldModule } from "@angular/material/form-field";
 import { Product } from "src/app/models/product.model";
-import { Observable, Subscription, finalize, map } from "rxjs";
+import { Subscription, finalize, map } from "rxjs";
 import { ProductService } from "src/app/services/product.service";
-import { saveAs } from "file-saver";
 import { AngularFireStorage } from "@angular/fire/compat/storage";
 import { lastValueFrom } from "rxjs";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-admin-product",
@@ -17,7 +13,7 @@ import { ActivatedRoute } from "@angular/router";
 
   styleUrls: ["admin-product.component.css"],
 })
-export class AdminProductComponent implements OnInit, OnDestroy{
+export class AdminProductComponent implements OnInit, OnDestroy {
   @ViewChild("fileInput") fileInput: any;
 
   product: Product = {} as Product;
@@ -29,17 +25,19 @@ export class AdminProductComponent implements OnInit, OnDestroy{
   sizes$ = this.mapFirebaseActions(this.categoryService.getSize());
   imageUrls: string[] = []; // Aquí se almacenarán las URLs de las imágenes
   productSubscription: Subscription = new Subscription();
-
+  id;
   constructor(
     private storage: AngularFireStorage,
     private categoryService: CategoryService,
     private productoService: ProductService,
     private route: ActivatedRoute,
-    
+    private router: Router
   ) {
-
-    let id = this.route.snapshot.paramMap.get('key');
-    if (id) this.productSubscription = this.productoService.get(id).subscribe(p => this.product = p);
+    this.id = this.route.snapshot.paramMap.get("key");
+    if (this.id)
+      this.productSubscription = this.productoService
+        .get(this.id)
+        .subscribe((p) => (this.product = p));
     console.log(this.product);
   }
 
@@ -77,7 +75,9 @@ export class AdminProductComponent implements OnInit, OnDestroy{
               if (this.files && this.imageUrls.length === this.files.length) {
                 // Todos los archivos se han subido, así que guarda el producto
                 product.images = this.imageUrls; // Añade las URLs de las imágenes al producto
-                this.productoService.create(product);
+                if (this.id) this.productoService.update(this.id, product);
+                else this.productoService.create(product);
+                this.router.navigate(["/admin/list-product"]);
               }
             })
           );
@@ -87,7 +87,10 @@ export class AdminProductComponent implements OnInit, OnDestroy{
       }
     } else {
       // No hay archivos para subir, así que guarda el producto
-      this.productoService.create(product);
+      if (this.id) this.productoService.update(this.id, product);
+      else this.productoService.create(product);
+
+      this.router.navigate(["/admin/list-product"]);
     }
   }
 
@@ -127,5 +130,4 @@ export class AdminProductComponent implements OnInit, OnDestroy{
       console.error("Invalid index: ", index);
     }
   }
-
 }

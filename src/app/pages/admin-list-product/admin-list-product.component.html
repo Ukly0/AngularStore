@@ -24,7 +24,7 @@
         <tbody>
             <!-- Aquí puedes iterar sobre los productos y generar las filas de la tabla -->
             <tr *ngFor="let product of filter">
-                <td><img class="thumnail" src={{product.images[0]}} ></td>
+                <td class="image-cell"><img class="thumnail" src={{product.images[0]}} ></td>
                 <td>{{ product.title }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.colors }}</td>

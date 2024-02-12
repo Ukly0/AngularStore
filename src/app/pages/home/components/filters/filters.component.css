@@ -1,5 +1,5 @@
-label{
-    
+label {
+
     font-family: var(--ffamiliatitulo);
     font-size: 32px;
     padding-top: 1rem;
@@ -13,42 +13,57 @@ label{
 
 }
 
-.filter-container{
+.filter-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    
-    
+
+
     align-items: center;
     justify-content: center;
-    
+
 }
 
-.filters{
+.filters {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
     align-content: center;
 }
-.filter{
-   
+
+.filter {
+
     border-bottom: var(--borde);
     width: 100%;
     padding: 1rem;
     font-size: 18px;
 }
 
-.filter:hover{
+.active {
+
     background-color: var(--colorAcento3);
     font-weight: 800;
     font-size: 24px;
     transition: 0.5s;
     box-shadow: var(--Sombra2);
-    
+}
+
+button.active::before {
+    content: "# ";
+
+}
+
+.filter:hover {
+    background-color: var(--colorAcento3);
+    font-weight: 800;
+    font-size: 24px;
+    transition: 0.5s;
+    box-shadow: var(--Sombra2);
+
 }
 
 .filter:hover::before {
     content: "#";
-    
+
 }

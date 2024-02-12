@@ -37,3 +37,78 @@
     justify-items: center;
     align-items: center;
 }
+
+
+  
+  .app-filters.show {
+    transform: translateX(0) translateY(-50%); /* Asegura que el elemento permanezca centrado verticalmente cuando sea visible */
+    visibility: visible;
+  }
+
+
+  @media (max-width: 600px) {
+    .app-filters {
+      width: 50%;
+      
+    }
+
+    .toggle-filters-button {
+      display: flex;
+    }
+
+
+    .app-filters {
+        position: fixed;
+        left: 0;
+        top: 50%; /* Posiciona el elemento en el centro vertical de la pantalla */
+        transform: translateX(-100%) translateY(-50%); /* Centra el elemento verticalmente */
+        width: 50%;
+        height: auto;
+        background-color: white;
+        z-index: 1000;
+        overflow: auto;
+        border: var(--borde);
+        border-radius: var(--borderRadio);
+        box-shadow: var(--Sombra);
+        visibility: hidden;
+        transition: transform 0.5s, visibility 0.5s;
+      }
+
+      .toggle-filters-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1001;
+        
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        padding: 1rem;
+        border-radius: var(--borderRadio);
+        box-shadow: var(--Sombra);
+        border: var(--borde);
+        
+      }
+  }
+  @media (min-width: 600px) {
+  .toggle-filters-button {
+    display: none;
+    
+  }
+
+  .app-filters{
+    width: 50%;
+  }
+}
+
+  
+
+  .mat-icon{
+    transform: scale(1.5 );
+    margin-right: 0px;
+    }   
+
+
+
+    
+ 

@@ -1,59 +1,40 @@
-<mat-drawer-container 
-[autosize]="true"
-class="min-h-full max-w-7x1 mx-auto border-x">
+<mat-drawer-container [autosize]="true" class="min-h-full max-w-7x1 mx-auto border-x">
     <!-- Barra Lateral -->
-    <mat-drawer mode="side" opened  >
-        <app-filters></app-filters>
+    <mat-drawer mode="side" opened>
+        <app-filters class="app-filters" [class.show]="showFilters" ></app-filters>
     </mat-drawer>
     <mat-drawer-content class="">
         <div class="wrapper yellow">
             <div class="marquee white">
                 <p>日本になれ </p>
                 <p>
-                 - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
+                    - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
                 </p>
                 <p>日本になれ </p>
                 <p>
-                - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
+                    - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
                 </p>
-                 
             </div>
-        </div> 
-        
+
+        </div>
+
         <div class="catalog-div ">
             <div class=" catalog-div-items">
-                <mat-icon
-                >search</mat-icon>
-                <input  class="catalog-div-search" placeholder="Search..." type="text">
+                <mat-icon>search</mat-icon>
+                <input #query class="catalog-div-search" placeholder="Search..." (keyup)="filtertable(query.value)"
+                    type="text">
             </div>
         </div>
-        <mat-grid-list class="m-10"
-            gutterSize="8"
-            [cols]="cols"
-            rowHeight="500"
-        >
-            <mat-grid-tile>
-                <app-product-box class="w-full " ></app-product-box>
+        <mat-grid-list class="m-10" gutterSize="8" [cols]="cols" rowHeight="500">
+            <mat-grid-tile *ngFor="let product of filter">
+                <app-product-box [routerLink]="['/product',product.key]" [product]="product"></app-product-box>
             </mat-grid-tile>
-            <mat-grid-tile>
-                <app-product-box class="w-full" ></app-product-box>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <app-product-box class="w-full"></app-product-box>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <app-product-box class="w-full" ></app-product-box>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <app-product-box class="w-full" ></app-product-box>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <app-product-box class="w-full"></app-product-box>
-            </mat-grid-tile>
-            
         </mat-grid-list>
         {{category}}
     </mat-drawer-content>
 
-
 </mat-drawer-container>
+
+<button class="toggle-filters-button "  (click)="toggleFilters()">
+    <mat-icon>filter_alt</mat-icon>
+</button>

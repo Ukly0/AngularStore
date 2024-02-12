@@ -1,22 +1,23 @@
-<mat-card class="productcard" routerLink="/product" [ngClass]="{'text-left': !fullWidthMode}">
+<mat-card class="productcard" [ngClass]="{'text-left': !fullWidthMode}">
 
-    <div>  
-        <img class="w-full thumbnail"
-            
-            src="assets/2.png"/>
-            <hr>
-            <div class="divtitulo">
-                <span class="titulo w-full">Lugia T-Shirt StreetWear</span>
-                <div class="divcategoria w-full">
-                    <span class="categoria ">#TShirt</span> 
-                    <span class="categoria ">#Pokemon</span>           
-                </div>            
+    <div>
+        <img class="w-full thumbnail" src={{product.images[0]}} />
+        <hr>
+        <div class="divtitulo">
+            <span class="titulo w-full">{{product.title}}</span>
+            <div class="divcategoria w-full">
+                <span class="categoria ">#{{product.categories}}</span>
+                <span *ngFor="let theme of product.themes" class="theme ">#{{theme}}</span>
             </div>
-            <hr>
-            <div class="divprecio">
-                <button class="precio">{{'150' | currency}}</button>
-                <span class="precio-oferta">{{'150' | currency}}</span>
-            </div>
-            
+        </div>
+        <hr>
+        <div *ngIf=product.offerPrice class="divprecio">
+            <span class="price-offer">{{product.offerPrice | currency}}</span>
+            <span class="price">{{product.price | currency}}</span>
+        </div>
+
+        <div *ngIf=!product.offerPrice class="divprecio">
+            <span class="price-alone">{{product.price | currency}}</span>
+        </div>
     </div>
 </mat-card>

@@ -43,6 +43,7 @@ import { AdminListProductComponent } from './pages/admin-list-product/admin-list
 import { AdminProductComponent } from './pages/admin-product/admin-product.component';
 import { CategoryService } from './services/category.service';
 import { ProductService } from './services/product.service';
+import { CartService } from './services/cart.service';
 
 import { provideStorage,getStorage } from '@angular/fire/storage';
 @NgModule({
@@ -63,7 +64,6 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
   imports: [
     
     AngularFireModule.initializeApp(environment.firebase),
-    
     provideStorage(() => getStorage()),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -91,6 +91,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     MatInputModule
   ],
   providers: [
+    CartService,
     UserService,
     AuthService,
     AdminGuardService,

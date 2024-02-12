@@ -57,7 +57,13 @@ export class AdminProductComponent implements OnInit, OnDestroy {
   }
 
   async save(product: Product) {
+
+    if (product.offerPrice === undefined) {
+      product.offerPrice = null;
+    }
+
     if (this.files && this.files.length) {
+      
       for (let i = 0; i < this.files.length; i++) {
         const file = this.files[i];
         if (file) {

@@ -1,10 +1,11 @@
 <div class="filter-container" >
     <label class="">Categories</label>     
     <div class="filters">
-        <button class="filter" *ngFor="let category of categories$ |async" >{{category.name}}</button>
+        <button  *ngFor="let category of categories$ | async"  [class.active]="selectedCategory === category.name" class="filter" (click)="selectCategory(category.name)">{{category.name}}</button>
     </div> 
     <label class="d">Themes</label>
     <div class="filters">
-        <button class="filter" *ngFor="let t of themes$ | async" >{{t.name}}</button>
+        <button  *ngFor="let theme of themes$ | async"  [class.active]="selectedTheme === theme.name" class="filter" (click)="selectTheme(theme.name)">{{theme.name}}</button>
+
     </div> 
 </div>

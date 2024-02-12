@@ -11,12 +11,14 @@ body {
 }
 
 :root {
+  --colorgris: #e7e7e7;
   --colorAcento3: #ffb900;
   --colorAcento2: #2eb67d;
   --colorAcento: #1bafd0;
   --borderRadio: 3px;
   --borde: 3px solid black;
   --Sombra: 0.2rem 0.2rem black;
+  --Sombracolor: 0.2rem 0.2rem var(--colorAcento3);
   --Sombra2: 0.0rem 0.2rem black;
   --ffamiliatitulo: "Bebas Neue";
   --ffamiliabody: "Roboto Mono";
@@ -120,7 +122,9 @@ hr {
   margin: 6px;
 }
 .divprecio {
+  display: flex;
   font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
 }
 .titulo {
   margin-bottom: 16px;
@@ -131,7 +135,18 @@ hr {
 .categoria {
   margin-right: 6px;
   padding: 3px;
-  background-color: var(--colorAcento3);
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border-radius: var(--borderRadio);
+  border: var(--borde);
+  
+}
+
+.theme {
+  margin-right: 6px;
+  padding: 3px;
+  background-color: var(--colorgris);
   font-weight: bold;
   border-radius: var(--borderRadio);
   border: var(--borde);
@@ -198,12 +213,31 @@ button.boton_aceptar {
   padding-bottom: 5px;
 }
 
-button.precio {
+span.price-offer {
+  font-family: var(--ffamiliabody);
+  font-size: 16px;
+  font-weight: 900;
   border: 3px solid black;
   border-radius: var(--borderRadio);
+  box-shadow: var(--Sombra);
   padding: 6px;
   margin: 6px;
-  background-color: var(--colorAcento);
+  background-color: var(--colorAcento3);
+}
+
+
+span.price {
+  font-family: var(--ffamiliabody);
+  font-weight: 200;
+  font-size: 16px;
+  
+}
+
+span.price-alone {
+  font-family: var(--ffamiliabody);
+  font-weight: bold;
+  font-size: 18px;
+  
 }
 
 .contenedor {

@@ -31,12 +31,13 @@ export class ProductService {
   }
 
   get(pId : any){
-    return this.db.object('/product/' + pId).valueChanges().pipe(
-      map(product => {
-        if ((product as any).images) {
-          (product as any).images.sort();
+    return this.db.object('/product/' + pId).snapshotChanges().pipe(
+      map(snapshot => {
+        let product = snapshot.payload.val() as any;
+        if (product.images) {
+          product.images.sort();
         }
-        return product;
+        return { key: snapshot.key, ...product };
       })
     ) as Observable<Product>;
   }

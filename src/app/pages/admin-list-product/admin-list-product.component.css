@@ -1,8 +1,9 @@
-
 .container{
     display: flex;
     flex-direction: column;
-    margin: 2rem;
+    justify-content: center;
+    height: 100vh;
+    width: 100%; /* Ajusta la altura al 100% del viewport */
 }
 
 .div-button-add{
@@ -33,27 +34,6 @@
 .catalog-div{
     display: flex;
     margin: 2rem;
-    margin-bottom: 0rem;
-    height: 4rem;
-    border: var(--borde);
-    border-radius: var(--borderRadio);
-    box-shadow: var(--Sombra);
-    justify-items: center;
-    align-items: center;
-}.catalog-div{
-    display: flex;
-    margin: 2.8rem;
-    margin-bottom: 0rem;
-    height: 4rem;
-    border: var(--borde);
-    border-radius: var(--borderRadio);
-    box-shadow: var(--Sombra);
-    justify-items: center;
-    align-items: center;
-}
-.catalog-div{
-    display: flex;
-    margin: 2.8rem;
     margin-bottom: 0rem;
     height: 4rem;
     border: var(--borde);
@@ -95,8 +75,11 @@ td {
     padding: 1rem;
 }
 
-td img {
+
+
+
+.image-cell {
     display: flex;
-    max-width: 100%;
-    height: auto;
-}
+    justify-content: center;
+    align-items: center;
+  }

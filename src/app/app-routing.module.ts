@@ -14,7 +14,7 @@ import { AdminProductComponent } from './pages/admin-product/admin-product.compo
 const routes: Routes = [
   { path: 'cart',component: CartComponent, canActivate: [GuardService] },
   { path: 'home',component: HomeComponent },
-  { path: 'product', component: ProductComponent, canActivate: [GuardService, AdminGuardService] },
+  { path: 'product/:key', component: ProductComponent, canActivate: [GuardService, AdminGuardService] },
   { path: 'products-list', component: AdminListProductComponent, canActivate: [GuardService,AdminGuardService] },
   { path: 'add-product/:key', component: AdminProductComponent, canActivate: [GuardService, AdminGuardService] },
   { path: 'add-product', component: AdminProductComponent, canActivate: [GuardService, AdminGuardService] }, // Cambiando 'product' a 'producto'

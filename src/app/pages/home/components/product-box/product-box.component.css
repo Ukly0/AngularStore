@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Sharp");
+
+.productcard {
+  font-family: var(--ffamiliabody);
+  border: 3px solid black !important;
+  border-radius: var(--borderRadio) !important ;
+  display: flex;
+  padding: 0px !important;
+  margin: 6px !important;
+}
+
+.productcard:hover {
+  box-shadow: var(--Sombra);
+}
+.productcard:hover .thumbnail {
+  background-color: var(--colorAcento3);
+}
+.heart-button {
+  border-left: var(--borde);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 3.2rem;
+}
+
+.mat-icon {
+  font-family: "Material Icons Sharp";
+  scale: 1.5;
+}
+
+.divprecio {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  align-items: center !important;
+  justify-content: space-between;
+  height: 3.2rem;
+}
+
+span.price {
+  font-family: var(--ffamiliabody);
+  font-weight: 300;
+  font-size: 16px;
+  
+}
+
+span.price-alone {
+  font-family: var(--ffamiliabody);
+  font-size: 16px;
+  font-weight: 900;
+  border: 3px solid black;
+  border-radius: var(--borderRadio);
+  box-shadow: var(--Sombra);
+  padding: 6px;
+  margin: 6px;
+  background-color: white;
+  align-items: center !important;
+}
+
+span.price-offer {
+  font-family: var(--ffamiliabody);
+  font-size: 18px;
+  font-weight: 900;
+  border: 3px solid black;
+  border-radius: var(--borderRadio);
+  box-shadow: var(--Sombra);
+  padding: 6px;
+  margin: 6px;
+  background-color: var(--colorAcento3);
+  align-items: center !important;
+}

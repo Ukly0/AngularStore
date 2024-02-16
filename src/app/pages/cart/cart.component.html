@@ -1,4 +1,4 @@
-<mat-card class="cardtable" *ngIf="cart.items.length">
+<mat-card class="cardtable" >
     <table mat-table [dataSource]="dataSource" class="w-full">
         <ng-container matColumnDef="product">
             <th class="product-cell" *matHeaderCellDef>Product</th>
@@ -12,7 +12,7 @@
         <ng-container matColumnDef="name">
             <th *matHeaderCellDef>Name</th>
             <td class="cart-cell" *matCellDef="let element">
-                <span class="truncate max-w-xs block">{{element.name}}</span>
+                <span class="truncate max-w-xs block"></span>
             <td mat-footer-cell *matFooterCellDef>
             </td>
         </ng-container>
@@ -38,10 +38,10 @@
         </ng-container>
         <ng-container matColumnDef="total">
             <th *matHeaderCellDef>Total</th>
-            <td class="cart-cell" *matCellDef="let element">{{ element.price *element.quantity | currency }} </td>
+            <td class="cart-cell" *matCellDef="let element"> </td>
             <td mat-footer-cell *matFooterCellDef>
                 <span class="font-bold  block">
-                    {{getTotal(cart.items)| currency}}
+                   
                 </span>
             </td>
         </ng-container>
@@ -65,7 +65,7 @@
         <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
     </table>
 </mat-card>
-<mat-card *ngIf="!cart.items.length">
+<mat-card >
     <p>
         Your cart is empty.
         <button mat-raised-button routerLink="/home">Start shopping</button>

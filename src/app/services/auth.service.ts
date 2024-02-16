@@ -5,9 +5,10 @@ import { GoogleAuthProvider, FacebookAuthProvider } from '@angular/fire/auth';
 import { Observable, of, switchMap } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { UserService } from './user.service';
-
+import { getAuth } from "firebase/auth";
 import { User } from '../models/user.model';
 
+import { initializeApp } from "firebase/app";
 
 
 
@@ -16,12 +17,21 @@ import { User } from '../models/user.model';
 })
 
 export class AuthService {
+  getUserCartId(userid: string) {
+    throw new Error('Method not implemented.');
+  }
 
   public user$: Observable<firebase.User | null>;
+  userKey: string | null = null;
 
   constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase, private userServ: UserService) { 
     this.user$ = afAuth.authState;
-
+    this.user$.subscribe((user) => {
+      if (user) {
+        this.userKey = user.uid;
+        console.log('UserKey: ', this.userKey);
+      }
+    });
   }
 
    // Iniciar sesión con correo electrónico y contraseña
@@ -44,7 +54,6 @@ export class AuthService {
         }
       });
   }
-
  
   googleSignIn() {
     return this.afAuth.signInWithPopup(new GoogleAuthProvider())
@@ -60,7 +69,6 @@ export class AuthService {
         console.log(err);
       });
   }
-
 
   facebookSignIn() {
     return this.afAuth.signInWithPopup(new FacebookAuthProvider())
@@ -83,11 +91,15 @@ export class AuthService {
     )
   }
 
+  getCurrentUserUid(): string | null {
+    let user = firebase.auth().currentUser;
+    return user ? user.uid : null;
+  }
+
+  logout() {
+    return this.afAuth.signOut();
+  }
 
 
   
-
-
-
-
 }

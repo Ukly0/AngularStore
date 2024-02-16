@@ -98,21 +98,9 @@ hr {
   transition: background-color 0.3s ease-in-out;
 }
 
-.productcard {
-  font-family: var(--ffamiliabody);
-  border: 3px solid black !important;
-  border-radius: var(--borderRadio) !important ;
-  display: flex;
-  padding: 0px !important;
-  margin: 6px !important;
-}
 
-.productcard:hover {
-  box-shadow: var(--Sombra);
-}
-.productcard:hover .thumbnail {
-  background-color: var(--colorAcento3);
-}
+
+
 
 .divtitulo {
   padding-top: 6px;
@@ -121,11 +109,7 @@ hr {
   flex-direction: column;
   margin: 6px;
 }
-.divprecio {
-  display: flex;
-  font-family: Arial, Helvetica, sans-serif;
-  align-items: center;
-}
+
 .titulo {
   margin-bottom: 16px;
   font-size: 20px;
@@ -213,32 +197,10 @@ button.boton_aceptar {
   padding-bottom: 5px;
 }
 
-span.price-offer {
-  font-family: var(--ffamiliabody);
-  font-size: 16px;
-  font-weight: 900;
-  border: 3px solid black;
-  border-radius: var(--borderRadio);
-  box-shadow: var(--Sombra);
-  padding: 6px;
-  margin: 6px;
-  background-color: var(--colorAcento3);
-}
 
 
-span.price {
-  font-family: var(--ffamiliabody);
-  font-weight: 200;
-  font-size: 16px;
-  
-}
 
-span.price-alone {
-  font-family: var(--ffamiliabody);
-  font-weight: bold;
-  font-size: 18px;
-  
-}
+
 
 .contenedor {
   display: flex;

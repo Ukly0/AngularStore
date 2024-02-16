@@ -1,7 +1,7 @@
 <mat-card class="productcard" [ngClass]="{'text-left': !fullWidthMode}">
 
     <div>
-        <img class="w-full thumbnail" src={{product.images[0]}} />
+        <img class="w-full thumbnail" [routerLink]="['/product',product.key]" src={{product.images[0]}} />
         <hr>
         <div class="divtitulo">
             <span class="titulo w-full">{{product.title}}</span>
@@ -12,12 +12,24 @@
         </div>
         <hr>
         <div *ngIf=product.offerPrice class="divprecio">
-            <span class="price-offer">{{product.offerPrice | currency}}</span>
-            <span class="price">{{product.price | currency}}</span>
-        </div>
+            <div>
+                <span class="price-offer">{{product.offerPrice | currency:'':'symbol':'1.0-0'}}</span>
+                <span class="price">{{product.price | currency:'':'symbol':'1.0-0'}}</span>
+            </div>
 
+            <button   (click)="toggleWishlist()" class="heart-button">
+                <mat-icon *ngIf="(iswishlisted$ | async) === false">bookmark_border_sharp</mat-icon>
+                <mat-icon  *ngIf="(iswishlisted$ | async) === true">bookmark_fill_sharp</mat-icon>
+            </button>
+        </div>
+        
         <div *ngIf=!product.offerPrice class="divprecio">
             <span class="price-alone">{{product.price | currency}}</span>
+            <button (click)="toggleWishlist()" class="heart-button">
+                <mat-icon *ngIf="(iswishlisted$ | async) === false">bookmark_border_sharp</mat-icon>
+                <mat-icon *ngIf="(iswishlisted$ | async) === true">bookmark_fill_sharp</mat-icon>
+            </button>
         </div>
+        
     </div>
 </mat-card>

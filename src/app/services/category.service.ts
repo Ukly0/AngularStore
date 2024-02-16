@@ -48,4 +48,5 @@ export class CategoryService {
     }
   }
 
+//quiero una clase que me actualice el estado de la categoria seleccionada
 }

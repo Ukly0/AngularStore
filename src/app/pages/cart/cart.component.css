@@ -1,0 +1,36 @@
+
+
+
+td.product-cell {
+    padding: 16px;
+    display: flex;
+    width: auto;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center;
+    border-right: var(--borde);
+    border-bottom: var(
+      --borde
+    ) !important; /* Puedes ajustar el color y el grosor del borde según tus preferencias */
+  }
+  
+
+mat-card{
+    background-color: transparent;
+    border-radius: 0px;
+    box-shadow: none;
+
+    
+}
+
+.continue-div{
+    border-bottom: var(--borde) !important;
+}
+
+img{
+    max-height: 200px;
+    max-width: 200px;
+    
+    border: var(--borde);
+    border-radius: var(--radioBorde);
+    box-shadow: var(--Sombra);
+}

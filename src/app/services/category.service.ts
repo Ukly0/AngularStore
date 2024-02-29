@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { AngularFireDatabase } from "@angular/fire/compat/database";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class CategoryService {
   private selectedCategorySource = new BehaviorSubject<string | null>(null);
@@ -12,23 +12,22 @@ export class CategoryService {
   selectedCategory$ = this.selectedCategorySource.asObservable();
   selectedTheme$ = this.selectedThemeSource.asObservable();
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) {}
 
-
-  getCategories(){
-    return this.db.list('/category', ref => ref.orderByChild('name'));
+  getCategories() {
+    return this.db.list("/category", (ref) => ref.orderByChild("name"));
   }
 
-  getThemes(){
-    return this.db.list('/theme', ref => ref.orderByChild('name'));
+  getThemes() {
+    return this.db.list("/theme", (ref) => ref.orderByChild("name"));
   }
 
-  getColor(){
-    return this.db.list('/color', ref => ref.orderByChild('name'));
+  getColor() {
+    return this.db.list("/color", (ref) => ref.orderByChild("name"));
   }
 
-  getSize(){
-    return this.db.list('/size', ref => ref);
+  getSize() {
+    return this.db.list("/size", (ref) => ref);
   }
 
   selectCategory(category: string) {
@@ -39,7 +38,6 @@ export class CategoryService {
     }
   }
 
-
   selectTheme(theme: string) {
     if (this.selectedThemeSource.value === theme) {
       this.selectedThemeSource.next(null); // Deseleccionar la categoría
@@ -47,5 +45,4 @@ export class CategoryService {
       this.selectedThemeSource.next(theme); // Seleccionar la categoría
     }
   }
-
 }

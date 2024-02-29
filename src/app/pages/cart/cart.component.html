@@ -1,9 +1,9 @@
-<mat-card class="cardtable" *ngIf="cart.items.length">
+<mat-card class="cardtable">
     <table mat-table [dataSource]="dataSource" class="w-full">
         <ng-container matColumnDef="product">
             <th class="product-cell" *matHeaderCellDef>Product</th>
             <td *matCellDef="let element" class="product-cell">
-                <img class="p-6" src="{{element.product}}" alt="product" />
+                <img  src="{{element.variant.img}}" alt="product" />
             </td>
             <td class="cart-cell" *matFooterCellDef>
                 <button class="cart-b-continue" routerLink="/home">Continue shopping</button>
@@ -12,14 +12,16 @@
         <ng-container matColumnDef="name">
             <th *matHeaderCellDef>Name</th>
             <td class="cart-cell" *matCellDef="let element">
-                <span class="truncate max-w-xs block">{{element.name}}</span>
+                <span class="truncate max-w-xs block">{{element.variant.title}}</span>
+            </td>
             <td mat-footer-cell *matFooterCellDef>
             </td>
         </ng-container>
         <ng-container matColumnDef="price">
             <th *matHeaderCellDef>Price</th>
             <td class="cart-cell" *matCellDef="let element">
-                {{element.price | currency}}
+                {{element.variant.price | currency}}
+            </td>
             <td mat-footer-cell *matFooterCellDef>
             </td>
         </ng-container>
@@ -33,15 +35,18 @@
                 <button mat-icon-button>
                     <mat-icon>add</mat-icon>
                 </button>
+            </td>
             <td mat-footer-cell *matFooterCellDef>
             </td>
         </ng-container>
         <ng-container matColumnDef="total">
             <th *matHeaderCellDef>Total</th>
-            <td class="cart-cell" *matCellDef="let element">{{ element.price *element.quantity | currency }} </td>
+            <td class="cart-cell" *matCellDef="let element">
+                {{element.variant.price * element.quantity | currency}}
+            </td>
             <td mat-footer-cell *matFooterCellDef>
-                <span class="font-bold  block">
-                    {{getTotal(cart.items)| currency}}
+                <span class="font-bold block">
+                    {{totalPrice | currency}}
                 </span>
             </td>
         </ng-container>
@@ -53,9 +58,10 @@
                 <button>
                     <mat-icon>close</mat-icon>
                 </button>
+            </td>
             <td class="cart-th" *matFooterCellDef>
-                <button class="cart-b-proceed">
-                    Prooceed To Checkout
+                <button (click)="onCheckout()" class="cart-b-proceed">
+                    Proceed To Checkout
                 </button>
             </td>
         </ng-container>
@@ -65,7 +71,7 @@
         <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
     </table>
 </mat-card>
-<mat-card *ngIf="!cart.items.length">
+<mat-card class="continue-div" *ngIf="dataSource.length === 0">
     <p>
         Your cart is empty.
         <button mat-raised-button routerLink="/home">Start shopping</button>

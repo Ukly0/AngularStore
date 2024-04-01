@@ -12,7 +12,7 @@ import { AdminListProductComponent } from './pages/admin-list-product/admin-list
 import { AdminProductComponent } from './pages/admin-product/admin-product.component';
 
 const routes: Routes = [
-  { path: 'cart',component: CartComponent, canActivate: [GuardService] },
+  { path: 'cart',component: CartComponent  },
   { path: 'home',component: HomeComponent },
   { path: 'product/:key', component: ProductComponent },
   { path: 'products-list', component: AdminListProductComponent, canActivate: [GuardService,AdminGuardService] },

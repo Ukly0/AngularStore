@@ -1,5 +1,5 @@
 const stripeService = require('../services/stripeService');
-const firebaseService = require('../services/firebaseService');
+require('dotenv').config();
 
 
 exports.createCheckoutSession = async (req, res, next) => {
@@ -12,20 +12,21 @@ exports.createCheckoutSession = async (req, res, next) => {
     }
 };
 
+// paymentController.js
 exports.handleWebhook = (req, res) => {
-    const sig = req.headers["stripe-signature"];
-    const secret = "";
-    console.log('webhook');
+    const sig = req.headers['stripe-signature'];
+    const secret = process.env.SECRET_WEBHOOK;
+    let event;
+  
     try {
-      const event = stripeService.constructEvent(req.body.toString('utf8'), sig, secret);
-      console.log('evento', event);
-      // Si todo va bien, envía una respuesta de éxito
-      res.status(200).send("Success");
+      event = stripeService.constructEvent(req.body, sig, secret);
     } catch (err) {
-      // Si algo va mal, envía una respuesta de error
-      console.error(err);
-      res.status(400).send(`Webhook Error: ${err.message}`);
+      console.log(`❌ Error message: ${err.message}`);
+      return res.status(400).send(`Webhook Error: ${err.message}`);
     }
+  
+    console.log('✅ Success:', event.id);
+    res.json({received: true});
   };
 
 

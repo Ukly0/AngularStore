@@ -46,8 +46,10 @@ import { ProductService } from "./services/product.service";
 import { CartService } from "./services/cart.service";
 import { provideStorage, getStorage } from "@angular/fire/storage";
 import { HttpClientModule } from "@angular/common/http";
-import { OrderService } from "./services/order.service";  
-
+import { OrderService } from "./services/order.service";
+import { OrdersComponent } from './pages/orders/orders.component';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';  
+import { WishlistService } from "./services/wishlist.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,8 @@ import { OrderService } from "./services/order.service";
     LoginComponent,
     AdminListProductComponent,
     AdminProductComponent,
+    OrdersComponent,
+    WishlistComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -92,6 +96,7 @@ import { OrderService } from "./services/order.service";
     MatInputModule,
   ],
   providers: [
+    WishlistService,
     OrderService,
     CartService,
     UserService,

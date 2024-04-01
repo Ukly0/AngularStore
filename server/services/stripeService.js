@@ -1,12 +1,15 @@
 const stripe = require("stripe")("sk_test_51OoRtGCktDADDsvxDKQ2k3sfgzxZQ85D8DhR2o31Gms7NhM5W5IG981xNdIiSrdpwagWrfI7OisI84DUEEujTQ1V00MiacYGbF");
-const bodyparser = require("body-parser");
-
+const firebaseService = require('../services/firebaseService');
+const  emailController = require('../controllers/emailController');
 exports.createCheckoutSession = async (req, res) => {
     try {
         const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
+        customer_email: req.body.email,
         shipping_address_collection: {
-        allowed_countries: ['US', 'CA'],
+        allowed_countries: ['US', 'CA', 'ES', 'FR', 'DE', 'IT', 'GB'],
+        
+
         },
         shipping_options: [
             {
@@ -56,10 +59,10 @@ exports.createCheckoutSession = async (req, res) => {
             price_data: {
                 currency: 'usd',
                 product_data: {
-                  name: item.variant.title,
+                  name: item.variant.title + ' - ' + item.variant.selectedSize + ' - ' + item.variant.selectedColor,
                   images: [item.variant.img]
                 },
-                unit_amount: item.variant.price * 100,
+                unit_amount: Math.round((item.variant.offerPrice || item.variant.price) * 100), // Use offerPrice if it exists, otherwise use price
             },
             quantity: item.quantity,
         })),
@@ -77,26 +80,42 @@ exports.createCheckoutSession = async (req, res) => {
     }
 };
 
-exports.constructEvent = (body, signature, secret) => {
+exports.constructEvent = async (body, signature, secret) => {
     let event;
-    console.log('Estoy aqui');
+    
     try {
         event = stripe.webhooks.constructEvent(body, signature, secret);
     } catch (err) {
         throw new Error(`Webhook Error: ${err.message}`);
     }
-    console.log('event', event);
+   
     // Check if the event is a successful payment
     if (event.type === 'checkout.session.completed') {
         const session = event.data.object;
-        console.log('Checkout session completed!', session);
+
+        // Fetch the line items
+        const lineItems = await stripe.checkout.sessions.listLineItems(session.id);
+        
+        let customerEmail;
+
+        if (session.customer) {
+            const customer = await stripe.customers.retrieve(session.customer);
+            customerEmail = customer.email;
+        } else if (session.customer_details && session.customer_details.email) {
+            // If the customer entered their email manually during checkout, use that email
+            customerEmail = session.customer_details.email;
+        }
         // Extract the order information
         const order = {
             id: session.id,
-            items: session.display_items.map(item => ({
-                name: item.custom.name,
+            email: customerEmail,
+            orderNumber: generateOrderNumber(),
+            items: lineItems.data.map(item => ({
+                name: item.description,
+                size: item.description.split(' - ')[1],
+                color: item.description.split(' - ')[2],
                 quantity: item.quantity,
-                price: item.amount_subtotal / 100, // Convert from cents to dollars
+                price: item.amount_total / 100, // Convert from cents to dollars
             })),
             total: session.amount_total / 100, // Convert from cents to dollars
             // Add any other information you want to save here
@@ -104,7 +123,14 @@ exports.constructEvent = (body, signature, secret) => {
 
         // Save the order
         firebaseService.saveOrder(order);
+        emailController.sendPurchaseConfirmationEmail(customerEmail, order);
     }
 
     return event;
 };
+
+function generateOrderNumber() {
+    const datePart = new Date().toISOString().replace(/[^0-9]/g, "");
+    const randomPart = Math.floor(Math.random() * 10000);
+    return + datePart  + randomPart;
+}

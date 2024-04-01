@@ -1,36 +1,41 @@
 const express = require("express");
 const cors = require("cors");
-const bodyparser = require("body-parser");
+const cron = require('node-cron');
+const firebaseService = require('./services/firebaseService'); // Asegúrate de que esta ruta sea correcta
+const moment = require('moment-timezone');
+
 
 // Importar rutas
 const paymentRoutes = require('./routes/payment');
-const stripeService = require('./services/stripeService');
 
 const app = express();
+
+app.use((req, res, next) => {
+  if (req.originalUrl === '/payment/webhook') {
+    next();
+  } else {
+    express.json()(req, res, next);
+  }
+});
+
 app.use(express.static("public"));
-app.use(bodyparser.urlencoded({ extended: false }));
-app.use(bodyparser.json());
 app.use(cors({ origin: true, credentials: true }));
+
 
 // Usar rutas
 app.use('/payment', paymentRoutes);
 
-// Usa el middleware raw de body-parser, que te da el cuerpo sin procesar como un Buffer
-app.post('/webhook', (req, res) => {
-    console.log(req)
-    const sig = req.headers["stripe-signature"];
-    const secret = "whsec_MnriXHXTpPcQuiFBrKk5CAjZH7PLCY9P";
-    console.log('webhook');
-    try {
-      const event = stripeService.constructEvent(req, sig, secret);
-      console.log('evento', event);
-      // Si todo va bien, envía una respuesta de éxito
-      res.status(200).send("Success");
-    } catch (err) {
-      // Si algo va mal, envía una respuesta de error
-      console.error(err);
-      res.status(400).send(`Webhook Error: ${err.message}`);
-    }
-  });
+// Cambia cada minuto las ofertas de los productos
+//cron.schedule('* * * * *', () => firebaseService.putProductsOnSale());
+
+//Cambia cada lunes a las 00:01 las ofertas de los productos teniendo en cuenta la hora de Washington
+cron.schedule('1 0 * * 1', () => {
+  const washingtonTime = moment().tz('America/New_York').format('dddd HH:mm:ss');
+  if (washingtonTime.startsWith('Monday 00:01')) {
+    firebaseService.putProductsOnSale();
+  }
+});
+
+
 
 app.listen(4242, () => console.log('app is running on 4242'));

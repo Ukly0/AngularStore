@@ -101,6 +101,7 @@ export class CartComponent implements OnInit {
     this.http
       .post("http://localhost:4242/payment/checkout", {
         items: this.cartItems,
+        email: this.user?.email,
       })
       .subscribe(async (res: any) => {
         let stripe = await loadStripe(

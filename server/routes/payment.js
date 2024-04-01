@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 
 router.post("/checkout", paymentController.createCheckoutSession);
 
-router.post("/webhook", bodyParser.raw({type: 'application/json'}), paymentController.handleWebhook);
+router.post('/webhook', express.raw({type: 'application/json'}), paymentController.handleWebhook);
+
 
 router.get("/checkout-session", async (req, res, next) => {
   try {

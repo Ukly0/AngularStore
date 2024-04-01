@@ -12,9 +12,9 @@ body {
 
 :root {
   --colorgris: #e7e7e7;
-  --colorAcento3: #ffb900;
+  --colorAcento: #ffb900;
   --colorAcento2: #2eb67d;
-  --colorAcento: #1bafd0;
+  --colorAcento3: #1bafd0;
   --borderRadio: 3px;
   --borde: 3px solid black;
   --Sombra: 0.2rem 0.2rem black;
@@ -179,28 +179,6 @@ hr {
   box-shadow: var(--Sombra);
 }
 
-button.boton_cancelar {
-  border-top: var(--borde);
-
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-button.boton_aceptar {
-  border-top: var(--borde);
-  border-left: var(--borde);
-  background-color: var(--colorAcento);
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-
-
-
 
 
 .contenedor {
@@ -287,7 +265,7 @@ button.boton_aceptar {
   flex-direction: column;
 
   border-left: var(--borde);
-
+  
   min-height: 100vh;
   padding-top: 0px;
   width: 60%;
@@ -378,6 +356,7 @@ button.boton_aceptar {
 
 .product-price-div {
   margin: 16px;
+  margin-bottom: 24px;
   align-content: center;
 }
 

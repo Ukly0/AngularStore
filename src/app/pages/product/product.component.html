@@ -32,14 +32,29 @@
         <h1>{{product.title}}</h1>
       </div>
 
+      
+
       <div class="product-price">
         <div class="product-categoria w-full">
           <span class="categoria ">{{product.categories}}</span>
           <span *ngFor="let theme of product.themes" class="categoria ">{{theme}}</span>
         </div>
-        <div class="product-price-div">
+
+        <div *ngIf="countdown.days" class="countdown">
+          <div class="days element">{{countdown.days}}d</div>
+          <span>:</span>
+          <div class="minutes element">{{countdown.minutes}}m</div>
+          <span>:</span>
+          <div class="seconds element">{{countdown.seconds}}s</div>
+        </div>
+
+        <div *ngIf="product.offerPrice" class="product-price-div">
+          <span class="span-offer">{{product.offerPrice | currency}}</span>
+          <span class="span-anterior">{{product.price| currency}}</span>
+        </div>
+
+        <div *ngIf="!product.offerPrice" class="product-price-div">
           <span class="span-precio">{{product.price | currency}}</span>
-          <span class="span-anterior">{{'25.99' | currency}}</span>
         </div>
       </div>
 

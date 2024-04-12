@@ -26,15 +26,15 @@ app.use(cors({ origin: true, credentials: true }));
 app.use('/payment', paymentRoutes);
 
 // Cambia cada minuto las ofertas de los productos
-//cron.schedule('* * * * *', () => firebaseService.putProductsOnSale());
+cron.schedule('* * * * *', () => firebaseService.putProductsOnSale());
 
 //Cambia cada lunes a las 00:01 las ofertas de los productos teniendo en cuenta la hora de Washington
-cron.schedule('1 0 * * 1', () => {
-  const washingtonTime = moment().tz('America/New_York').format('dddd HH:mm:ss');
-  if (washingtonTime.startsWith('Monday 00:01')) {
-    firebaseService.putProductsOnSale();
-  }
-});
+// cron.schedule('1 0 * * 1', () => {
+//   const washingtonTime = moment().tz('America/New_York').format('dddd HH:mm:ss');
+//   if (washingtonTime.startsWith('Monday 00:01')) {
+//     firebaseService.putProductsOnSale();
+//   }
+// });
 
 
 

@@ -1,0 +1,139 @@
+<div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="head">
+        <div class="head-action">
+            <div class="head-text">
+              <h1 class="changing-text">
+                <span class="text">BE</span>
+                <span class="text">WEAR</span>
+                <span class="text">DISCOVER</span>
+                <br> JAPAN</h1> 
+                                <p>Show off your love for anime with the latest anime clothing! Show off your love for anime with the latest anime clothing!</p>   
+                <button routerLink="home" class="button">Take a look</button>
+            </div>        
+            
+        </div>
+        <div class="images">
+            <img class="fixed-image" style="width: 85%; height: auto;"src="../../../assets/Envasado.png" alt="landing1">
+            <div class="shirt" *ngFor="let image of imagesmock; let i = index">
+                <img class="superimposed-image" [ngClass]="{'no-delay': i === 0}" [src]="imagesmock[i]" alt="landing1">
+            </div>
+            <img class="fixed-image" style="width: 65%; height: auto;" src="../../../assets/texture.png" alt="landing1">
+        </div>
+    </div>
+    <div class="wrapper white2">
+        <div class="marquee white">
+          <div class="marquee-content">
+            <p> DROPS SALES  セール  UKIYO SALES  ドロップセール  DROPS SALES  セール  UKIYO SALES  ドロップセール</p>
+            <p> DROPS SALES  セール  UKIYO SALES  ドロップセール  DROPS SALES  セール  UKIYO SALES  ドロップセール</p>
+            <p> DROPS SALES  セール  UKIYO SALES  ドロップセール  DROPS SALES  セール  UKIYO SALES  ドロップセール</p>
+            <p> DROPS SALES  セール  UKIYO SALES  ドロップセール  DROPS SALES  セール  UKIYO SALES  ドロップセール</p>
+            <p> DROPS SALES  セール  UKIYO SALES  ドロップセール  DROPS SALES  セール  UKIYO SALES  ドロップセール</p>
+          </div>
+        </div>
+    </div>
+
+    <div class="offers">
+        <div class="offers-counter">
+            <div *ngIf="countdown.days" class="countdown">
+                <div class="days element">{{countdown.days}}d </div>
+                <span>:</span>
+                <div class="minutes element">{{countdown.minutes}}m</div>
+                <span>:</span>
+                <div class="seconds element">{{countdown.seconds}}s</div>
+              </div>
+        </div>
+
+        <div class="product-list">
+            
+                <div class="product-item" *ngFor="let product of products">
+                    <app-product-box [product]="product"></app-product-box>
+                </div>
+            
+        </div>
+    </div>
+    <div class="wrapper white2">
+        <div class="marquee white">
+          <div class="marquee-content">
+            <p> REVIEWS レビュー  UKIYO CLUB  ウキヨ セール REVIEWS レビュー UKIYO CLUB ウキヨ セール </p>
+            <p> REVIEWS レビュー  UKIYO CLUB  ウキヨ セール REVIEWS レビュー UKIYO CLUB ウキヨ セール </p>
+            <p> REVIEWS レビュー  UKIYO CLUB  ウキヨ セール REVIEWS レビュー UKIYO CLUB ウキヨ セール </p>
+            <p> REVIEWS レビュー  UKIYO CLUB  ウキヨ セール REVIEWS レビュー UKIYO CLUB ウキヨ セール </p>
+            <p> REVIEWS レビュー  UKIYO CLUB  ウキヨ セール REVIEWS レビュー UKIYO CLUB ウキヨ セール </p>
+            <p> REVIEWS レビュー  UKIYO CLUB  ウキヨ セール REVIEWS レビュー UKIYO CLUB ウキヨ セール </p>
+          </div>
+        </div>
+    </div>
+    <div class="reviews">
+        <div class="review" *ngFor="let author of authors; let i = index">
+          <div class="image">
+            <img [src]="images[i]" alt="review{{i + 1}}">
+          </div>
+          <div class="info">
+            <p class="author">{{author}}</p>
+            <div class="info-image"> 
+              <div class="starts">
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </div>
+              -
+              <span> <img src="../../../assets/etsylogo.svg" /></span>
+            </div>
+            <p>"{{reviews[i]}}"</p>
+          </div>
+        </div>
+      </div>
+
+    <div class="benefits">
+      <div class="benefit">
+        <h1>DELIVERY</h1>
+        <img src="../../../assets/shipping.svg" />
+        <h2>Swift and reliable!</h2>
+        <p> Deliveries within 2-5 days in the United States and Canada ensure you receive your products promptly.</p>
+      </div>
+      <div class="benefit center">
+        <h1>SHIPPING</h1>
+        <img src="../../../assets/delivery.svg" />
+        <h2>Connecting the world! </h2>
+        <p> We ship to every corner of the globe so you can enjoy our products no matter where you are.</p>
+      </div>
+      <div class="benefit">
+        <h1>SECURITY</h1>
+        <img src="../../../assets/security.svg" />
+        <h2>Shop with peace of mind! </h2>
+        <p>Our payment system via Stripe ensures security.</p>
+      </div>
+    </div>
+    <div class="wrapper white2">
+      <div class="marquee white">
+        <div class="marquee-content">
+          <p> INFO <span class="fjapan"> レビュー </span>  ABOUT US  <span class="fjapan"> ウキヨ セール </span> INFO <span class="fjapan">レビュー </span> PASSION <span class="fjapan">ウキヨ セール</span> </p>
+          <p> INFO <span class="fjapan"> レビュー </span>  ABOUT US  <span class="fjapan"> ウキヨ セール </span> INFO <span class="fjapan">レビュー </span> PASSION <span class="fjapan">ウキヨ セール</span> </p>
+          <p> INFO <span class="fjapan"> レビュー </span>  ABOUT US  <span class="fjapan"> ウキヨ セール </span> INFO <span class="fjapan">レビュー </span> PASSION <span class="fjapan">ウキヨ セール</span> </p>
+          <p> INFO <span class="fjapan"> レビュー </span>  ABOUT US  <span class="fjapan"> ウキヨ セール </span> INFO <span class="fjapan">レビュー </span> PASSION <span class="fjapan">ウキヨ セール</span> </p>
+          <p> INFO <span class="fjapan"> レビュー </span>  ABOUT US  <span class="fjapan"> ウキヨ セール </span> INFO <span class="fjapan">レビュー </span> PASSION <span class="fjapan">ウキヨ セール</span> </p>
+        </div>
+      </div>
+  </div>
+    <div class="aboutus">
+      <div class="images">
+        <img src="../../../assets/tag.webp" alt="">
+      </div>
+      <div class="info">
+        <div class="passion">
+          <h1>Our passion as a brand</h1>
+          <p>
+            Ukly0 is a clothing brand that offers a <b> unique fusion of Japanese style clothing with a bold and rebellious aesthetic.</b>b> Our brand identity is characterized by a bold and unconventional approach to fashion, designed to cater to those who dare to be different and stand out from the crowd
+          </p>
+          <p>
+            At Ukly0,<b> we draw inspiration from Japan’s rich cultural heritage and fuse it with our modern design sensibility.</b> Our collections include a wide range of Japanese style garments, such as kimonos, yukatas and traditional Japanese prints, all with a contemporary twist that embodies our brand identity.
+          </p>
+        </div>
+      </div>  
+    </div>
+    
+    
+</div>

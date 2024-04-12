@@ -1,75 +1,65 @@
 <mat-card class="cardtable">
+    <div class="table-container">
     <table mat-table [dataSource]="dataSource" class="w-full">
         <ng-container matColumnDef="product">
             <th class="product-cell" *matHeaderCellDef>Product</th>
             <td *matCellDef="let element" class="product-cell">
                 <img  src="{{element.variant.img}}" alt="product" />
             </td>
-            <td class="cart-cell" *matFooterCellDef>
-                <button class="cart-b-continue" routerLink="/home">Continue shopping</button>
-            </td>
+            
         </ng-container>
         <ng-container matColumnDef="name">
             <th *matHeaderCellDef>Name</th>
             <td class="cart-cell" *matCellDef="let element">
                 <span class="truncate max-w-xs block">{{element.variant.title}}</span>
             </td>
-            <td mat-footer-cell *matFooterCellDef>
-            </td>
+            
         </ng-container>
         <ng-container matColumnDef="price">
             <th *matHeaderCellDef>Price</th>
             <td class="cart-cell" *matCellDef="let element">
                 {{element.variant.price | currency}}
             </td>
-            <td mat-footer-cell *matFooterCellDef>
-            </td>
+            
         </ng-container>
         <ng-container matColumnDef="quantity">
             <th *matHeaderCellDef>Quantity</th>
             <td class="cart-cell" *matCellDef="let element">
-                <button mat-icon-button>
-                    <mat-icon>remove</mat-icon>
-                </button>
                 {{element.quantity}}
-                <button mat-icon-button>
-                    <mat-icon>add</mat-icon>
-                </button>
+
             </td>
-            <td mat-footer-cell *matFooterCellDef>
-            </td>
+            
         </ng-container>
         <ng-container matColumnDef="total">
             <th *matHeaderCellDef>Total</th>
             <td class="cart-cell" *matCellDef="let element">
                 {{element.variant.price * element.quantity | currency}}
             </td>
-            <td mat-footer-cell *matFooterCellDef>
-                <span class="font-bold block">
-                    {{totalPrice | currency}}
-                </span>
-            </td>
+            
         </ng-container>
         <ng-container matColumnDef="action">
             <th class="cart-th" *matHeaderCellDef>
-                <button class="cart-b-clearAll">Clear All</button>
+                <button class="cart-b-clearAll" (click)="clearCart()">Clear All</button>
             </th>
             <td class="cart-cell" *matCellDef="let element">
                 <button>
-                    <mat-icon>close</mat-icon>
+                    <mat-icon (click)="clearItem(element)">close</mat-icon>
                 </button>
             </td>
-            <td class="cart-th" *matFooterCellDef>
-                <button (click)="onCheckout()" class="cart-b-proceed">
-                    Proceed To Checkout
-                </button>
-            </td>
+            
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+        
     </table>
+</div>
+    <div class="checkout">
+        <h2>Total: ${{ totalPrice }}</h2>
+        <button (click)="onCheckout()" class="button-checkout">
+            Checkout
+        </button>
+    </div>
 </mat-card>
 <mat-card class="continue-div" *ngIf="dataSource.length === 0">
     <p>

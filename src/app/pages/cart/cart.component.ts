@@ -97,6 +97,22 @@ export class CartComponent implements OnInit {
     });
   }
 
+  clearCart() {
+    
+      this.cartservice.clearCart();
+      this.cartItems = [];
+      this.dataSource = this.cartItems;
+    
+  }
+
+  clearItem(product: CartItem) {
+    this.cartservice.clearItem(product.variant);
+    this.cartItems = this.cartItems.filter(
+      (item) => item.variant.productKey !== product.variant.productKey
+    );
+    this.dataSource = this.cartItems;
+  }
+
   onCheckout() {
     this.http
       .post("http://localhost:4242/payment/checkout", {
@@ -124,6 +140,7 @@ export class CartComponent implements OnInit {
             let order = {cart: cart, status: 'pending', datePlaced: new Date().getTime(), shipping: 'On hold' };
             // El correo electrónico del cliente está en session.customer_email
             console.log('Customer email:', session.customer_email);
+            this.cartItems = [];
           }
         });
       });

@@ -81,6 +81,8 @@ export class HomeComponent implements OnDestroy {
       this.productsFilteredByCategory.filter((p: { title: string; }) => p.title.toLowerCase().includes(query.toLowerCase())) :
       this.productsFilteredByCategory;
     console.log(this.filter);
+
+    
   }
 
   filterProducts() {

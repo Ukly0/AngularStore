@@ -34,8 +34,8 @@ export class UserService {
     );
   }
 
-  getWishlist(uid: string): Observable<any> {
-    return this.db.list('/users/' + uid + '/wishlist').valueChanges();
+  getWishlist(uid: string) {
+    return this.db.list('/users/' + uid + '/wishlist').snapshotChanges();
   }
 
   removeWishlist(uid: string, pid: string) {

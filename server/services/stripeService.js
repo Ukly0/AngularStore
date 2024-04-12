@@ -1,6 +1,8 @@
 const stripe = require("stripe")("sk_test_51OoRtGCktDADDsvxDKQ2k3sfgzxZQ85D8DhR2o31Gms7NhM5W5IG981xNdIiSrdpwagWrfI7OisI84DUEEujTQ1V00MiacYGbF");
 const firebaseService = require('../services/firebaseService');
 const  emailController = require('../controllers/emailController');
+
+images = [];
 exports.createCheckoutSession = async (req, res) => {
     try {
         const session = await stripe.checkout.sessions.create({
@@ -55,19 +57,24 @@ exports.createCheckoutSession = async (req, res) => {
                 }
             },
         ],
-        line_items:  req.body.items.map((item) => ({
-            price_data: {
+        line_items: req.body.items.map((item) => {
+            // Add the image to the array
+            images.push(item.variant.img);
+        
+            return {
+              price_data: {
                 currency: 'usd',
                 product_data: {
                   name: item.variant.title + ' - ' + item.variant.selectedSize + ' - ' + item.variant.selectedColor,
                   images: [item.variant.img]
                 },
                 unit_amount: Math.round((item.variant.offerPrice || item.variant.price) * 100), // Use offerPrice if it exists, otherwise use price
-            },
-            quantity: item.quantity,
-        })),
+              },
+              quantity: item.quantity,
+            };
+          }),
         mode: "payment",
-        success_url: "http://localhost:4242/success.html",
+        success_url: "http://localhost:4200/success?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: "http://localhost:4242/cancel.html",
         });
 
@@ -109,6 +116,7 @@ exports.constructEvent = async (body, signature, secret) => {
         const order = {
             id: session.id,
             email: customerEmail,
+            date: new Date().toLocaleDateString(),
             orderNumber: generateOrderNumber(),
             items: lineItems.data.map(item => ({
                 name: item.description,
@@ -116,7 +124,10 @@ exports.constructEvent = async (body, signature, secret) => {
                 color: item.description.split(' - ')[2],
                 quantity: item.quantity,
                 price: item.amount_total / 100, // Convert from cents to dollars
+                image: images.shift(), // Add the image here
+                
             })),
+            status: 'Pending',
             total: session.amount_total / 100, // Convert from cents to dollars
             // Add any other information you want to save here
         };
@@ -124,6 +135,7 @@ exports.constructEvent = async (body, signature, secret) => {
         // Save the order
         firebaseService.saveOrder(order);
         emailController.sendPurchaseConfirmationEmail(customerEmail, order);
+        this.images = [];
     }
 
     return event;
@@ -134,3 +146,23 @@ function generateOrderNumber() {
     const randomPart = Math.floor(Math.random() * 10000);
     return + datePart  + randomPart;
 }
+
+
+const createOrder = async (session, items) => {
+    const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 5 });
+    const order = {
+      email: session.customer_details.email,
+      id: session.id,
+      orderNumber: generateOrderNumber(),
+      items: lineItems.data.map((item, index) => ({
+        name: item.description,
+        size: item.description.split(' - ')[1],
+        color: item.description.split(' - ')[2],
+        quantity: item.quantity,
+        price: item.amount_total / 100, // Convert from cents to dollars
+        image: items[index].variant.img, // Add the image here
+      })),
+      total: session.amount_total / 100, // Convert from cents to dollars
+    };
+    return order;
+  };

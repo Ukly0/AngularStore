@@ -6,5 +6,5 @@ export interface Order {
     email: string;
     shipping: string;
     status: string;
-    date: string;
+    orderNumber: string;
 }

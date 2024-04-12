@@ -1,0 +1,30 @@
+<div class="navheader" >
+    <div class="header">
+        <h1 mat-dialog-title>{{data.order.orderNumber}}</h1>
+        <mat-icon mat-dialog-close>close</mat-icon>
+    </div>
+</div>
+
+<div class="order-list">
+    <div *ngFor="let orderItem of data.order.items" class="order-item">
+        
+        <img src="{{orderItem.image}}" alt="{{orderItem.name}}">
+        <div class="order-item-details">
+            <p><b>Name</b>: {{ orderItem.name.split('-')[0] }}</p>
+            <p><b>Size</b>: {{ orderItem.size }}</p>
+            <p><b>Color</b>: {{ orderItem.color }}</p>
+            <p><b>Quantity</b>: {{ orderItem.quantity }} x ${{ orderItem.price }}</p>
+        </div>
+    </div>
+    <div class="order-details">
+        <span><b>Date: </b> {{ data.order.date }}</span>
+        <p><b>Status: </b> <span class="status">{{ data.order.status }}</span></p>
+        <p><b>Tracking:</b> 
+            <a *ngIf="data.order.tracking" [href]="data.order.tracking" target="_blank">Track your order here</a>
+            <span *ngIf="!data.order.tracking">No tracking available</span>
+          </p>
+    </div>
+    <div class="order-total">
+        <h1>Total: ${{ data.order.total }}</h1>
+    </div>
+</div>

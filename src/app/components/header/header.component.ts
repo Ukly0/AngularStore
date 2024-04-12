@@ -93,7 +93,6 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(LoginComponent);
   }
 
-
   OpenCart(){
     console.log(this.cartItems);
   }

@@ -1,114 +1,170 @@
-.catalog-div-search{
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.catalog-div-search {
+  background-color: transparent;
+  font-size: larger;
+  border: none;
+  padding: 0.75rem;
+
+  width: 100%;
+}
+
+.mat-dialog-container {
+  box-shadow: var(--Sombra) !important;
+  border: var(--borde) !important;
+}
+.mat-icon {
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+
+.catalog-div-items {
+  width: 100%;
+  display: flex;
+  margin: 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.catalog-div {
+  display: flex;
+  margin: 2rem;
+  margin-bottom: 0rem;
+  height: 4rem;
+  border: var(--borde);
+  border-radius: var(--borderRadio);
+  box-shadow: var(--Sombra);
+  justify-items: center;
+  align-items: center;
+}
+
+.no-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.no-message h1 {
+  font-size: 3em !important; /* Ajusta este valor a lo que necesites */
+}
+
+.app-filters.show {
+  transform: translateX(0) translateY(-50%); /* Asegura que el elemento permanezca centrado verticalmente cuando sea visible */
+  visibility: visible;
+}
+
+.mat-drawer {
+  border-right: var(--borde);
+  background-color: transparent;
+}
+
+@media (max-width: 600px) {
+  .app-filters {
+    width: 50%;
+  }
+
+  .toggle-filters-button {
+    display: flex;
+  }
+
+  .mat-drawer {
+    border-right: 0;
     background-color: transparent;
-    font-size: larger;
-    border: none;
-    padding: 0.75rem;
-    
-    width: 100%;
-}
+  }
 
-.mat-dialog-container{
-    box-shadow: var(--Sombra) !important;
-    border: var(--borde) !important;
-
-}
-.mat-icon{
-    transform: scale(1.5 );
-    margin-right: 10px;
-}
-
-.catalog-div-items{
-    width: 100%;
-    display: flex;
-    margin: 1rem;
-    align-items: center;
-    justify-items: center;
-    
-}
-
-.catalog-div{
-    display: flex;
-    margin: 2.8rem;
-    margin-bottom: 0rem;
-    height: 4rem;
+  .app-filters {
+    position: fixed;
+    left: 0;
+    top: 50%; /* Posiciona el elemento en el centro vertical de la pantalla */
+    transform: translateX(-100%) translateY(-50%); /* Centra el elemento verticalmente */
+    width: 50%;
+    height: auto;
+    background-color: white;
+    z-index: 1000;
+    overflow: auto;
     border: var(--borde);
     border-radius: var(--borderRadio);
     box-shadow: var(--Sombra);
-    justify-items: center;
+    visibility: hidden;
+    transition: transform 0.5s, visibility 0.5s;
+  }
+
+  .toggle-filters-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1001;
+
     align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: var(--borderRadio);
+    box-shadow: var(--Sombra);
+    border: var(--borde);
+  }
 }
-
-
-  
-  .app-filters.show {
-    transform: translateX(0) translateY(-50%); /* Asegura que el elemento permanezca centrado verticalmente cuando sea visible */
-    visibility: visible;
-  }
-
-
-  @media (max-width: 600px) {
-    .app-filters {
-      width: 50%;
-      
-    }
-
-    .toggle-filters-button {
-      display: flex;
-    }
-
-
-    .app-filters {
-        position: fixed;
-        left: 0;
-        top: 50%; /* Posiciona el elemento en el centro vertical de la pantalla */
-        transform: translateX(-100%) translateY(-50%); /* Centra el elemento verticalmente */
-        width: 50%;
-        height: auto;
-        background-color: white;
-        z-index: 1000;
-        overflow: auto;
-        border: var(--borde);
-        border-radius: var(--borderRadio);
-        box-shadow: var(--Sombra);
-        visibility: hidden;
-        transition: transform 0.5s, visibility 0.5s;
-      }
-
-      .toggle-filters-button {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        z-index: 1001;
-        
-        align-items: center;
-        justify-content: center;
-        background-color: white;
-        padding: 1rem;
-        border-radius: var(--borderRadio);
-        box-shadow: var(--Sombra);
-        border: var(--borde);
-        
-      }
-  }
-  @media (min-width: 600px) {
+@media (min-width: 600px) {
   .toggle-filters-button {
     display: none;
-    
   }
 
-  .app-filters{
+  .app-filters {
     width: 50%;
   }
 }
 
+.mat-icon {
+  transform: scale(1.5);
+  margin-right: 0px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+  padding: 18px;
+  justify-content: flex-start ;
+  overflow-x: hidden;
+}
+
+.product-center{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  align-items: center;
   
 
-  .mat-icon{
-    transform: scale(1.5 );
-    margin-right: 0px;
-    }   
+}
 
-
-
-    
- 
+.product-item {
+  flex: 0 0 auto; /* Cambia esto */
+  margin: 0 0; 
+  box-sizing: border-box;
+  position: relative;
+  
+}
+/* Para pantallas más pequeñas */
+@media (max-width: 300px) {
+  .product-item {
+      flex: 1 0 auto; /* Cambia esto */
+  }
+  .product-list {
+    justify-content: center;
+  }
+}

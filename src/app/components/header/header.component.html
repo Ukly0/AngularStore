@@ -1,82 +1,80 @@
-
 <mat-toolbar class="max-w mx-auto border-x justify-between">
 
     <div class="navmenu-mobile">
-        <a routerLink="home" class="custom-link">
-            <img src="assets\logo.png"  alt="Descripción de la imagen">
-        </a>    
+        <a routerLink="" class="custom-link">
+            <img src="assets\logo.png" alt="Descripción de la imagen">
+        </a>
     </div>
 
-    <div class="navmenu-desktop">
-        <a routerLink="home" class="custom-link">
-            <img src="assets\logo.png"  alt="Descripción de la imagen">
-        </a>    
-    </div>
-    
+
+
     <div class="flex navmenu-mobile" style="border-left:var(--borde) ;">
         <button mat-icon-button>
-            <mat-icon
-            >local_shipping</mat-icon>
+            <mat-icon>local_shipping</mat-icon>
         </button>
         <button mat-icon-button [matMenuTriggerFor]="menuac">
-            <mat-icon
-            >man</mat-icon>
+            <mat-icon>man</mat-icon>
         </button>
         <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon
-            [matBadge]="1"
-            matBadgeSize="small"
-            >shopping_cart</mat-icon>
+            <mat-icon [matBadge]="1" matBadgeSize="small">shopping_cart</mat-icon>
         </button>
     </div>
-    <div class="navmenu-desktop" style="width: 60%; justify-content: center;">
-    <li class="elements">
-        <ul class="allsides-1 ">Tracking</ul>
-        <ul class="allsides-1" >Catalog</ul>
-        <ul class="allsides-1" >About Us</ul>
-    </li>
+    <div class="navmenu-desktop">
+        <li class="elements">
+            <ul class="allsides-1">Catalog</ul>
+            <ul class="allsides-1">About Us</ul>
+        </li>
 
     </div>
+    <div class="navmenu-desktop" style="justify-content: center;">
+        <a routerLink="" class="custom-link">
+            <img class="logocenter" src="assets\logo.png" alt="Descripción de la imagen">
+        </a>
+    </div>
+
     <div class="navmenu-desktop" style="justify-content: right;">
         
         <ng-template #anonUser>
-            <button   class="button login" (click)="OpenLogin()">
+            <button class="button login" (click)="OpenLogin()">
                 Login
             </button>
         </ng-template>
-        
 
-        <button  *ngIf="auth.user$ | async as user; else anonUser" class="button login" [matMenuTriggerFor]="menuac">
+
+        <button *ngIf="auth.user$ | async as user; else anonUser" class="button login" [matMenuTriggerFor]="menuac">
             <mat-icon>man</mat-icon>
-        </button>  
-        
-        <button  class="button cart" [matMenuTriggerFor]="menu" matBadge="{{countproducto}}" matBadgeSize="medium">
+        </button>
+
+        <button class="button cart" [matMenuTriggerFor]="menu" matBadge="{{countproducto}}" matBadgeSize="medium">
             Cart
         </button>
+        
     </div>
 
-    <mat-menu #menuac = "matMenu" xPosition="before">
-        <div>   
-                <button mat-menu-item >My Orders</button>
-                <button mat-menu-item >Wishlist</button>
-                <button mat-menu-item (click)="LogOut()">Log Out</button>
-                <button mat-menu-item *ngIf="user?.isAdmin" routerLink="products-list"> Admin Products</button>
+    <mat-menu #menuac="matMenu" xPosition="before">
+        <div>
+            <button mat-menu-item routerLink="orders">My Orders</button>
+            <button mat-menu-item routerLink="wishlist">Wishlist</button>
+            <button mat-menu-item (click)="LogOut()">Log Out</button>
+            <button mat-menu-item *ngIf="user?.isAdmin" routerLink="products-list"> Admin Products</button>
+            <button mat-menu-item *ngIf="user?.isAdmin" routerLink="adminorders"> Admin Orders</button>
         </div>
     </mat-menu>
-    
-    <mat-menu  #menu = "matMenu" >
-        <div class="divide-y divide-solid" >
+
+    <mat-menu #menu="matMenu">
+        <div class="divide-y divide-solid">
             <div>
                 <div class=" items-contador p-3 flex justify-between">
                     <span class="mr-16">{{ countproducto }} items</span>
                     <a routerLink="cart">View Cart</a>
                 </div>
-                
+
                 <div *ngFor="let item of cartItems" class=" p-3 py-1 ">
                     <div class="flex justify-between font-light mt-1 mb-2">
                         <span class="span-item title">{{ item.variant.title }}</span>
                         <span class="span-item">x {{ item.quantity }}</span>
-                        <span *ngIf="item.variant.price" class="font-bold span-item">{{ item.variant.price * item.quantity | currency }}</span>
+                        <span *ngIf="item.variant.price" class="font-bold span-item">{{ item.variant.price *
+                            item.quantity | currency }}</span>
                     </div>
                 </div>
                 <div class="flex justify-between p-3 font-light ">
@@ -84,7 +82,7 @@
                     <span class="font-bold">{{ totalPrice | currency }}</span>
                 </div>
 
-                
+
             </div>
             <div class="flex justify-between">
                 <button (click)="OpenCart()" class="boton_cancelar">
@@ -94,7 +92,7 @@
                     Aceptar
                 </button>
             </div>
-            
+
         </div>
     </mat-menu>
 </mat-toolbar>

@@ -3,16 +3,20 @@
     <mat-drawer mode="side" opened>
         <app-filters class="app-filters" [class.show]="showFilters" ></app-filters>
     </mat-drawer>
-    <mat-drawer-content class="">
+    <mat-drawer-content>
         <div class="wrapper yellow">
             <div class="marquee white">
-                <p>日本になれ </p>
+                
                 <p>
-                    - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
+                    - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 - 日本になれ 
                 </p>
-                <p>日本になれ </p>
+                
                 <p>
-                    - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 -
+                    - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 - 日本になれ 
+                </p>
+                
+                <p>
+                    - Live Japan - Be Japan - Wear Japan - UKIY0 - Live Japan - Be Japan - Wear Japan - UKIY0 - 日本になれ 
                 </p>
             </div>
 
@@ -25,11 +29,17 @@
                     type="text">
             </div>
         </div>
-        <mat-grid-list class="m-10" gutterSize="8" [cols]="cols" rowHeight="500">
-            <mat-grid-tile *ngFor="let product of filter">
-                <app-product-box  [product]="product"></app-product-box>
-            </mat-grid-tile>
-        </mat-grid-list>
+        <div class="product-list">
+            <div class="product-center">
+                <div class="product-item" *ngFor="let product of filter">
+                    <app-product-box [product]="product"></app-product-box>
+                </div>
+            </div>  
+        </div>
+        <!-- Message when there are no products -->
+        <div *ngIf="filter?.length == 0" class="no-message">
+            <h1>No products found.</h1>
+        </div>
         {{category}}
     </mat-drawer-content>
 

@@ -50,6 +50,12 @@ import { OrderService } from "./services/order.service";
 import { OrdersComponent } from './pages/orders/orders.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';  
 import { WishlistService } from "./services/wishlist.service";
+import { SuccessComponent } from './pages/success/success.component';
+import { OrderComponent } from './components/order/order.component';
+import { AdminOrdersComponent } from './pages/admin-orders/admin-orders.component';
+import { OrderFormComponent } from './components/order-form/order-form.component';
+import { LandingComponent } from './pages/landing/landing.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +71,12 @@ import { WishlistService } from "./services/wishlist.service";
     AdminProductComponent,
     OrdersComponent,
     WishlistComponent,
+    SuccessComponent,
+    OrderComponent,
+    AdminOrdersComponent,
+    OrderFormComponent,
+    LandingComponent,
+    FooterComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

@@ -19,16 +19,43 @@ export class OrderService {
   }
 
   getOrders() {
-    return this.db.list('/orders').valueChanges() as Observable<Order[]>;
+    return this.db.list('/orders').valueChanges();
   }
 
   getOrderByEmail(email: string) {
-    return this.db.list('/orders', ref => ref.orderByChild('email').equalTo(email));
+    return this.db.list('/orders', ref => ref.orderByChild('email').equalTo(email)).valueChanges();
   }
 
   updateshipping(orderId: string, shipping: any) {
     return this.db.object('/orders/' + orderId).update({ shipping: shipping });
   }
 
+  update(orderNumber: number, order: any) {
+    let ref = this.db.list('/orders', ref => ref.orderByChild('orderNumber').equalTo(orderNumber));
+    ref.snapshotChanges().pipe(
+      take(1),
+      map(changes => 
+        changes.map(c => ({ key: c.payload.key, ...(c.payload.val() as object) }))
+      )
+    ).subscribe(snapshots => {
+      snapshots.forEach(snapshot => {
+        this.db.object('/orders/' + snapshot.key).update(order);
+      });
+    });
+  }
+
+  delete(orderNumber: string) {
+    let ref = this.db.list('/orders', ref => ref.orderByChild('orderNumber').equalTo(orderNumber));
+    ref.snapshotChanges().pipe(
+      take(1),
+      map(changes => 
+        changes.map(c => ({ key: c.payload.key, ...(c.payload.val() as object) }))
+      )
+    ).subscribe(snapshots => {
+      snapshots.forEach(snapshot => {
+        this.db.object('/orders/' + snapshot.key).remove();
+      });
+    });
+  }
  
 }

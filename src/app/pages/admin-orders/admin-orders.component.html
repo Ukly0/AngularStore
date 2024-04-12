@@ -1,0 +1,25 @@
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2" >
+    <div *ngFor="let order of orders | async" class="order-card" (click)="openOrder(order)">
+
+        <div class="status">
+            <h2 class="p-2">Order ID: <b> {{order.orderNumber}} </b></h2>
+            <div class="status-square"></div>
+        </div>
+        <div class="status">
+            <h2 class="p-2"><b> {{order.email}} </b></h2>
+        </div>
+        <div class="product-thumbnails p-3 flex gap-2">
+            <img *ngFor="let item of order.items" [src]="item.image" alt="{{item.name}}" class="product-thumbnail">
+        </div>
+        <div class="date"> 
+            <h2>Date: <b>{{order.date}}</b></h2>
+            <h1>${{order.total}} </h1>
+        </div>  
+    </div>
+    <div *ngIf="!(orders | async)" class="no-orders-message">
+        <h1>You have no orders yet...</h1>
+    </div>
+    
+
+
+</div>

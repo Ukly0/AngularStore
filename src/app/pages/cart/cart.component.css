@@ -1,36 +1,66 @@
-
-
-
 td.product-cell {
-    padding: 16px;
-    display: flex;
-    width: auto;
-    align-items: center; /* Centra verticalmente el contenido */
-    justify-content: center;
-    border-right: var(--borde);
-    border-bottom: var(
-      --borde
-    ) !important; /* Puedes ajustar el color y el grosor del borde según tus preferencias */
-  }
-  
-
-mat-card{
-    background-color: transparent;
-    border-radius: 0px;
-    box-shadow: none;
-
-    
+  padding: 16px;
+  display: flex;
+  width: auto;
+  align-items: center; /* Centra verticalmente el contenido */
+  justify-content: center;
+  border-right: var(--borde);
+  border-bottom: var(
+    --borde
+  ) !important; /* Puedes ajustar el color y el grosor del borde según tus preferencias */
 }
 
-.continue-div{
-    border-bottom: var(--borde) !important;
+mat-card {
+  display: flex;
+  background-color: transparent;
+  border-radius: 0px;
+  box-shadow: none;
 }
 
-img{
-    max-height: 200px;
-    max-width: 200px;
-    
-    border: var(--borde);
-    border-radius: var(--radioBorde);
-    box-shadow: var(--Sombra);
+.continue-div {
+  border-bottom: var(--borde) !important;
+}
+
+.checkout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.5rem;
+  border-top: var(--borde) !important;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #f8f9fa;
+}
+
+.table-container {
+  margin-bottom: 4rem; /* Ajusta este valor según la altura de tu div de checkout */
+  display: flex;
+  width: 100%;
+}
+.button-checkout {
+  background-color: var(--colorAcento);
+  display: flex;
+  border-left: var(--borde);
+  height: 100%;
+  width: 35%;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ffamiliatitulo);
+  font-size: 40px;
+}
+
+h2 {
+  margin: 0;
+  margin-left: 1rem;
+}
+
+img {
+  min-height: 100px;
+  min-width: 100px;
+  max-width: 160px;
+  max-height: 160px;
+  border: var(--borde);
+  border-radius: var(--radioBorde);
+  box-shadow: var(--Sombra);
 }

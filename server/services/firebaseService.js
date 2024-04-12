@@ -46,10 +46,12 @@ exports.putProductsOnSale = async () => {
       ref.child(product.id).set(product);
     }
 
-    // Selecciona aleatoriamente 4 productos que no están en oferta
-    for (let i = 0; i < Math.min(2, productsNotOnSale.length); i++) {
-      const randomIndex = Math.floor(Math.random() * productsNotOnSale.length);
-      const product = productsNotOnSale.splice(randomIndex, 1)[0];
+    let productsNotOnSaleCopy = [...productsNotOnSale];
+
+
+    for (let i = 0; i < Math.min(3, productsNotOnSaleCopy.length); i++) {
+      const randomIndex = Math.floor(Math.random() * productsNotOnSaleCopy.length);
+      const product = productsNotOnSaleCopy.splice(randomIndex, 1)[0];
       product.offerPrice = +(product.price * 0.9).toFixed(2); // Reduce el precio en un 10% y mantiene dos decimales
       ref.child(product.id).set(product);
     }

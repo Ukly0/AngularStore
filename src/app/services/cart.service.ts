@@ -47,6 +47,36 @@ export class CartService implements OnInit {
     );
   }
 
+  clearCart() { 
+
+    
+    console.log("clearCart");
+    this.getOrCreateCartId().pipe(first()).subscribe((cartId) => {
+      this.db.object("/shopping-cart/" + cartId).remove();
+    });
+    localStorage.removeItem('cartId');
+   
+  }
+
+
+  clearItem(product: Variant) {
+    console.log("clearItem");
+    this.getOrCreateCartId().pipe(first()).subscribe((cartId) => {
+      let variant = product.selectedColor + product.selectedSize;
+      let item$ = this.db.object("/shopping-cart/" + cartId + "/items/" + product.productKey + variant);
+      item$.snapshotChanges().pipe(take(1)).subscribe(item => {
+        if (item.payload.exists()) {
+          let quantity = (item.payload.val() as any).quantity || 0;
+          if (quantity > 1) {
+            item$.update({ quantity: quantity - 1 });
+          } else {
+            item$.remove();
+          }
+        }
+      });
+    });
+  }
+
   getOrCreateCartId(): Observable<any> {
     return this.auth.user$.pipe(
       switchMap((user) => {

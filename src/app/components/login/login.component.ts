@@ -84,8 +84,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-
-
   registerForm = this.formBuilder.group({
     fname: ['', [Validators.required, Validators.maxLength(15), Validators.pattern("^[a-zA-Z]+$")]],
     lname: ['', [Validators.required, Validators.maxLength(15), Validators.pattern("^[a-zA-Z]+$")]],

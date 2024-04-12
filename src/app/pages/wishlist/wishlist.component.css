@@ -1,0 +1,34 @@
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 100%;
+    padding: 18px;
+    justify-content: flex-start ;
+    overflow-x: hidden;
+  }
+  
+  .product-center{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    align-items: center;
+    
+  
+  }
+  
+  .product-item {
+    flex: 0 0 auto; /* Cambia esto */
+    margin: 0 0; 
+    box-sizing: border-box;
+    position: relative;
+    
+  }
+
+/* Para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .product-item {
+        flex: 1 0 auto; /* Cambia esto */
+    }
+}

@@ -1,26 +1,12 @@
 <div class="flex-container">
   <div class="container">
-    <form
-      class="container-form"
-      (ngSubmit)="save(productForm.value)"
-      #productForm="ngForm"
-    >
+    <form class="container-form" (ngSubmit)="save(productForm.value)" #productForm="ngForm">
       <h1>Product</h1>
 
       <mat-form-field appearance="outline">
         <mat-label>Product Title</mat-label>
-        <input
-          [(ngModel)]="product.title"
-          matInput
-          type="text"
-          placeholder="Title"
-          id="title"
-          name="title"
-          required
-          #title="ngModel"
-          minlength="5"
-          maxlength="50"
-        />
+        <input [(ngModel)]="product.title" matInput type="text" placeholder="Title" id="title" name="title" required
+          #title="ngModel" minlength="5" maxlength="50" />
         <mat-icon matSuffix>edit_note</mat-icon>
         <mat-hint>5-50 characters</mat-hint>
         <mat-error *ngIf="title.invalid && title.touched">
@@ -30,18 +16,8 @@
       <div class="dual-form">
         <mat-form-field appearance="outline">
           <mat-label>Product Price</mat-label>
-          <input
-            matInput
-            [(ngModel)]="product.price"
-            type="number"
-            placeholder="Price"
-            id="price"
-            name="price"
-            required
-            min="0"
-            max="100000"
-            #price="ngModel"
-          />
+          <input matInput [(ngModel)]="product.price" type="number" placeholder="Price" id="price" name="price" required
+            min="0" max="100000" #price="ngModel" />
 
           <mat-icon matSuffix>attach_money</mat-icon>
           <mat-error *ngIf="price.invalid && price.touched">
@@ -51,15 +27,8 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Product Offer Price</mat-label>
-          <input
-            matInput
-            [(ngModel)]="product.offerPrice"
-            type="number"
-            placeholder="Offer Price"
-            id="offerPrice"
-            name="offerPrice"
-            #offerPrice="ngModel"
-          />
+          <input matInput [(ngModel)]="product.offerPrice" type="number" placeholder="Offer Price" id="offerPrice"
+            name="offerPrice" #offerPrice="ngModel" />
           <mat-icon matSuffix>sell</mat-icon>
         </mat-form-field>
       </div>
@@ -67,13 +36,8 @@
       <div class="dual-form">
         <mat-form-field appearance="outline">
           <mat-label for="categories">Categories:</mat-label>
-          <mat-select
-            [(ngModel)]="product.categories"
-            name="categories"
-            placeholder="Categories"
-            #categories="ngModel"
-            required
-          >
+          <mat-select [(ngModel)]="product.categories" name="categories" placeholder="Categories" #categories="ngModel"
+            required>
             <mat-option *ngFor="let c of categories$ | async" [value]="c.name">
               #{{ c.name }}
             </mat-option>
@@ -85,13 +49,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label for="themes">Themes:</mat-label>
-          <mat-select
-          [(ngModel)]="product.themes"
-            name="themes"
-            placeholder="Favorite food"
-            multiple
-            #themes="ngModel"
-          >
+          <mat-select [(ngModel)]="product.themes" name="themes" placeholder="Favorite food" multiple #themes="ngModel">
             <mat-option *ngFor="let t of themes$ | async" [value]="t.name">
               #{{ t.name }}
             </mat-option>
@@ -113,15 +71,8 @@
 
         <mat-form-field appearance="outline">
           <mat-label for="colors">Colors:</mat-label>
-          <mat-select
-            [(ngModel)]="product.colors"
-            name="colors"
-            placeholder="Select Size"
-            minlength="1"
-            #colors="ngModel"
-            multiple
-            required
-          >
+          <mat-select [(ngModel)]="product.colors" name="colors" placeholder="Select Size" minlength="1"
+            #colors="ngModel" multiple required>
             <mat-option *ngFor="let t of colors$ | async" [value]="t.name">
               {{ t.name }}
             </mat-option>
@@ -134,46 +85,30 @@
 
       <mat-form-field appearance="outline">
         <mat-label for="description">Description:</mat-label>
-        <textarea
-          matInput
-          [(ngModel)]="product.description"
-          id="description"
-          name="description"
-          max
-          required
-          minlength="20"
-          #description="ngModel"
-        ></textarea>
+        <textarea matInput [(ngModel)]="product.description" id="description" name="description" max required
+          minlength="20" #description="ngModel"></textarea>
         <mat-error *ngIf="description.invalid && description.touched">
           Please add description (20-500 characters).
         </mat-error>
       </mat-form-field>
 
-      <button type="button" mat-raised-button (click)="fileInput.click()">
-        Choose File
-      </button>
-      <input
-        hidden
-        name="inputFile"
-        (change)="onFileChange($event)"
-        #fileInput
-        accept="image/*"
-        type="file"
-        multiple
-      />
+      
+      <div class="div_buttons">
+        <input hidden name="inputFile" (change)="onFileChange($event)" #fileInput accept="image/*" type="file" multiple />
+        <button type="button" mat-raised-button (click)="fileInput.click()">
+          Choose File
+        </button>
+        <button mat-button type="submit" [disabled]="!productForm.valid">
+          Guardar Producto
+        </button>
+      </div>
+      
 
-      <button mat-button type="submit" [disabled]="!productForm.valid">
-        Guardar Producto
-      </button>
-      
     </form>
-  
-   <div *ngIf="imagePreviews.values" class="img-display">
-      
-      <div 
-        *ngFor="let preview of imagePreviews; index as i"
-        class="image-container"
-      >
+
+    <div *ngIf="imagePreviews.values" class="img-display">
+
+      <div *ngFor="let preview of imagePreviews; index as i" class="image-container">
         <img [src]="preview" class="thumnail" />
         <button class="delete-button" (click)="onDelete(i)">
           <span class="material-icons"> close </span>
@@ -181,29 +116,29 @@
       </div>
     </div>
   </div>
-  <div class="container justify-end">
-    <div *ngIf="title.valid"class="card">
-    <h1>Preview</h1>
-    <div class="w-2/3">
-      <mat-card  class="productcard">
-        <div>
-          <img class="w-full thumbnail" src={{imagePreviews[0]}} />
-          <img *ngIf="product.images && !imagePreviews[0]" class="w-full thumbnail" src={{product.images[0]}} />
-          <hr />
-          <div class="divtitulo">
-            <span  class="titulo w-full">{{title.value}}</span>
-            <div class="divcategoria w-full">
-              <span *ngIf="categories.value" class="categoria">#{{categories.value}}</span>
-              <span *ngFor="let theme of themes.value" class="categoria">#{{theme}}</span>
+  <div class="div-product">
+    <div *ngIf="title.valid" class="card">
+      <div class="product_preview">
+            <img class="w-full thumbnail" src={{imagePreviews[0]}} />
+            <img *ngIf="product.images && !imagePreviews[0]" class="w-full thumbnail" src={{product.images[0]}} />
+            <hr />
+            <div class="divtitulo">
+              <span class="titulo w-full">{{title.value}}</span>
+              <div class="divcategoria w-full">
+                <span *ngIf="categories.value" class="categoria">#{{categories.value}}</span>
+                <span *ngFor="let theme of themes.value" class="theme">#{{theme}}</span>
+              </div>
             </div>
-          </div>
-          <hr />
-          <div class="divprecio">
-            <button *ngIf="price.value" class="precio">{{ price.value| currency }}</button>
-            <span *ngIf="offerPrice.value" class="precio-oferta">{{ offerPrice.value| currency }}</span>
-          </div>
-        </div>
-    </mat-card>
+            <hr />
+            <div class="divprecio">
+              <span *ngIf="offerPrice.value" class="precio-oferta">{{ offerPrice.value| currency }}</span>
+              <button *ngIf="price.value" class="precio">{{ price.value| currency }}</button>
+            </div>
+      </div>
     </div>
+    <div *ngIf="!title.valid" class="card">
+      <h1>PREVIEW</h1>
+    </div>
+
+
   </div>
-</div>

@@ -15,8 +15,13 @@
         </div>
         <div class="images">
             <img class="fixed-image" style="width: 85%; height: auto;"src="../../../assets/Envasado.png" alt="landing1">
+            <div class="shirt2">
+              <img class="superimposed-image2" src="../../../assets/4m.png" alt="landing1">
+            </div>
+           
+            
             <div class="shirt" *ngFor="let image of imagesmock; let i = index">
-                <img class="superimposed-image" [ngClass]="{'no-delay': i === 0}" [src]="imagesmock[i]" alt="landing1">
+                <img class="superimposed-image" [src]="imagesmock[i]" alt="landing1">
             </div>
             <img class="fixed-image" style="width: 65%; height: auto;" src="../../../assets/texture.png" alt="landing1">
         </div>

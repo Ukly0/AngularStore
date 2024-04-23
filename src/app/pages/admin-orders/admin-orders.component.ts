@@ -32,6 +32,19 @@ export class AdminOrdersComponent implements OnInit {
     });
   }
 
+  getStatusColor(status: string): string {
+    switch (status) {
+      case 'Pending':
+        return 'var(--colorAcento)';
+      case 'On Hold':
+        return 'var(--colorAcento3)';
+      case 'Complete':
+        return 'var(--colorAcento2)';
+      default:
+        return 'transparent';
+    }
+  }
+
   openOrder(order: any){
     this.dialog.open(OrderFormComponent, {
       data: {

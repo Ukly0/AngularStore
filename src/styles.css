@@ -34,11 +34,6 @@ body {
   --ffamiliabody3: "Open Sans", sans-serif;
 }
 
-app-root{
-
-  
-}
-
 textarea:focus,
 input:focus {
   outline: none;
@@ -264,61 +259,7 @@ hr {
   padding: 0;
 }
 
-.productglobal {
-  box-sizing: border-box;
-  display: flex;
-  width: 100vw;
-  min-height: 100vh;
-  border-bottom: var(--borde);
-}
 
-.productinf {
-  display: flex;
-  flex-direction: column;
-
-  border-left: var(--borde);
-  
-  min-height: 100vh;
-  padding-top: 0px;
-  width: 60%;
-}
-
-.productimg {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: "Bebas Neue", sans-serif;
-  height: fit-content;
-  margin: 0;
-  width: 40%;
-}
-
-.productimg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* o "contain" según tus necesidades */
-}
-@media only screen and (min-width: 767px) {
-  .productinf img {
-    display: none;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .productimg {
-    display: none; /* Cambia a un diseño de columna para pantallas más pequeñas */
-  }
-  .productinf {
-    border-left: none;
-    width: 100%; /* Cambia a un diseño de columna para pantallas más pequeñas */
-  }
-
-  .productinf img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* o "contain" según tus necesidades */
-    border-bottom: var(--borde);
-  }
-}
 .product-title {
   background-color: var(--colorAcento3);
   display: flex;
@@ -383,12 +324,7 @@ hr {
   font-weight: 400;
 }
 
-.product-add {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
+
 
 .product-b-add {
   width: 100%;

@@ -18,7 +18,7 @@
     </div>
     <div class="order-details">
         <span><b>Date: </b> {{ data.order.date }}</span>
-        <p><b>Status: </b> <span class="status">{{ data.order.status }}</span></p>
+        <p><b>Status: </b> <span class="status" [ngStyle]="{'background-color': getStatusColor(data.order.status)}">{{data.order.status}}</span></p>
         <p><b>Tracking:</b> 
             <a *ngIf="data.order.tracking" [href]="data.order.tracking" target="_blank">Track your order here</a>
             <span *ngIf="!data.order.tracking">No tracking available</span>

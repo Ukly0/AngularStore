@@ -20,4 +20,17 @@ export class OrderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getStatusColor(status: string): string {
+    switch (status) {
+      case 'Pending':
+        return 'var(--colorAcento)';
+      case 'On Hold':
+        return 'var(--colorAcento3)';
+      case 'Complete':
+        return 'var(--colorAcento2)';
+      default:
+        return 'transparent';
+    }
+  }
+
 }

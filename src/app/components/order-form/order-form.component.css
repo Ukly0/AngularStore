@@ -18,6 +18,45 @@
     padding: 0.5rem;
     border-bottom: var(--borde);
 }
+
+.order_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.update_button{
+    width: 50%;
+    height: auto;
+    padding: 1rem;
+    border-top: var(--borde);
+    
+    background-color: var(--colorAcento);
+    font-weight: 700;
+}
+
+input{
+    border: var(--borde);
+    border-radius: var(--borderRadio);
+    padding: 0.5rem;
+}
+.delete_button{
+    width: 50%;
+    height: auto;
+    padding: 1rem;
+    border-top: var(--borde);
+    border-right: var(--borde);
+    background-color: whitesmoke ;
+    
+    font-weight: 700;
+}
+
+.remove_button{
+    padding: 0 0.5rem ;
+    border: var(--borde);
+    border-radius: var(--borderRadio);
+    box-shadow: var(--Sombra);
+}
 img{
     width: 100px;
     height: 100px;

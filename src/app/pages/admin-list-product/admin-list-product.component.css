@@ -45,8 +45,8 @@ table{
 
 .catalog-div{
     display: flex;
-    margin: 2rem;
-    margin-bottom: 0rem;
+    margin: 0rem;
+    
     height: 4rem;
     width: 100%;
     border: var(--borde);

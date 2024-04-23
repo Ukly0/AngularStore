@@ -77,9 +77,7 @@ export class LandingComponent implements OnInit {
   
     const imgshirt = this.el.nativeElement.querySelectorAll('.superimposed-image');
     imgshirt.forEach((imgshirt: HTMLElement, index: number) => {
-      if (index !== 0) {
-        imgshirt.style.animationDelay = `${index * 5}s`;
-      }
+    imgshirt.style.animationDelay = `${index * 5}s`;
     });
   }
 

@@ -7,7 +7,7 @@ const moment = require('moment-timezone');
 
 // Importar rutas
 const paymentRoutes = require('./routes/payment');
-
+const emailRoutes = require('./routes/email');
 const app = express();
 
 app.use((req, res, next) => {
@@ -24,7 +24,7 @@ app.use(cors({ origin: true, credentials: true }));
 
 // Usar rutas
 app.use('/payment', paymentRoutes);
-
+app.use('/email', emailRoutes);
 // Cambia cada minuto las ofertas de los productos
 cron.schedule('* * * * *', () => firebaseService.putProductsOnSale());
 

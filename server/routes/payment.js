@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const paymentController = require("../controllers/paymentController");
 const stripeService = require("../services/stripeService");
+const emailController = require("../controllers/emailController");
 const bodyParser = require('body-parser');
 
 router.post("/checkout", paymentController.createCheckoutSession);

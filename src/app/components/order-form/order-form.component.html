@@ -13,7 +13,7 @@
         <p><b>Size</b>: {{ orderItem.size }}</p>
         <p><b>Color</b>: {{ orderItem.color }}</p>
         <p><b>Quantity</b>: {{ orderItem.quantity }} x ${{ orderItem.price }}</p>
-        <button (click)="removeItem(i)">Remove</button>
+        <button class="remove_button" (click)="removeItem(i)">Remove</button>
       </div>
     </div>
     <div class="order-details">
@@ -25,15 +25,16 @@
           <option value="Complete">Complete</option>
         </select>
       </p>
-      <p><b>Tracking:</b> 
-        <input [(ngModel)]="newTracking">
-        <a *ngIf="data.order.tracking" [href]="data.order.tracking" target="_blank">Track your order here</a>
-        
-      </p>
+      <p><b>Tracking:</b> </p>
+      <input [(ngModel)]="newTracking">
+      
     </div>
     <div class="order-total">
       <h1>Total: ${{ data.order.total }}</h1>
     </div>
-    <button (click)="update()">Update</button>
-    <button (click)="deleteOrder(data.order.orderNumber)">Delete</button>
+    <div class="order_buttons">
+      <button class="delete_button" (click)="deleteOrder(data.order.orderNumber)">Delete</button>
+      <button  class="update_button" mat-dialog-close (click)="update()">Update</button>
+      
+    </div>
   </div>

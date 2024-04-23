@@ -10,11 +10,18 @@ td.product-cell {
   ) !important; /* Puedes ajustar el color y el grosor del borde según tus preferencias */
 }
 
-mat-card {
+.cardtable {
   display: flex;
+  flex-direction: column;
   background-color: transparent;
   border-radius: 0px;
   box-shadow: none;
+  height: 100vh;
+  align-items: start;
+  justify-content: flex-start;
+  margin-bottom: 3rem;
+    /* Asegúrate de que este valor sea al menos tan alto como la altura de .checkout */
+
 }
 
 .continue-div {
@@ -25,14 +32,16 @@ mat-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4.5rem;
+  min-height: 4.5rem;
   border-top: var(--borde) !important;
-  position: fixed;
+  position: sticky;
   bottom: 0;
+  
   width: 100%;
-  background: #f8f9fa;
-}
+  background-color: #f8f9fa;
+  z-index: 1;
 
+}
 .table-container {
   margin-bottom: 4rem; /* Ajusta este valor según la altura de tu div de checkout */
   display: flex;
@@ -42,7 +51,7 @@ mat-card {
   background-color: var(--colorAcento);
   display: flex;
   border-left: var(--borde);
-  height: 100%;
+  height: 4.5rem !important;
   width: 35%;
   align-items: center;
   justify-content: center;

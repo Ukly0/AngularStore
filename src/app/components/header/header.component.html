@@ -6,8 +6,6 @@
         </a>
     </div>
 
-
-
     <div class="flex navmenu-mobile" style="border-left:var(--borde) ;">
         <button mat-icon-button>
             <mat-icon>local_shipping</mat-icon>
@@ -33,24 +31,18 @@
     </div>
 
     <div class="navmenu-desktop" style="justify-content: right;">
-        
         <ng-template #anonUser>
             <button class="button login" (click)="OpenLogin()">
                 Login
             </button>
         </ng-template>
-
-
         <button *ngIf="auth.user$ | async as user; else anonUser" class="button login" [matMenuTriggerFor]="menuac">
             <mat-icon>man</mat-icon>
         </button>
-
         <button class="button cart" [matMenuTriggerFor]="menu" matBadge="{{countproducto}}" matBadgeSize="medium">
             Cart
         </button>
-        
     </div>
-
     <mat-menu #menuac="matMenu" xPosition="before">
         <div>
             <button mat-menu-item routerLink="orders">My Orders</button>
@@ -60,7 +52,6 @@
             <button mat-menu-item *ngIf="user?.isAdmin" routerLink="adminorders"> Admin Orders</button>
         </div>
     </mat-menu>
-
     <mat-menu #menu="matMenu">
         <div class="divide-y divide-solid">
             <div>
@@ -68,21 +59,18 @@
                     <span class="mr-16">{{ countproducto }} items</span>
                     <a routerLink="cart">View Cart</a>
                 </div>
-
-                <div *ngFor="let item of cartItems" class=" p-3 py-1 ">
-                    <div class="flex justify-between font-light mt-1 mb-2">
+                <div *ngFor="let item of cartItems" class=" cart_product ">
+                    
                         <span class="span-item title">{{ item.variant.title }}</span>
                         <span class="span-item">x {{ item.quantity }}</span>
                         <span *ngIf="item.variant.price" class="font-bold span-item">{{ item.variant.price *
                             item.quantity | currency }}</span>
-                    </div>
+                    
                 </div>
-                <div class="flex justify-between p-3 font-light ">
+                <div class="cart_product ">
                     Total:
                     <span class="font-bold">{{ totalPrice | currency }}</span>
                 </div>
-
-
             </div>
             <div class="flex justify-between">
                 <button (click)="OpenCart()" class="boton_cancelar">
@@ -92,7 +80,6 @@
                     Aceptar
                 </button>
             </div>
-
         </div>
     </mat-menu>
 </mat-toolbar>

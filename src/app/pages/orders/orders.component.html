@@ -1,9 +1,9 @@
-<div class="grid grid-cols-1 md:grid-cols-3 gap-2" >
+<div class="grid grid-cols-1 h-screen md:grid-cols-3 gap-2" >
     <div *ngFor="let order of orders | async" class="order-card" (click)="openOrder(order)">
 
         <div class="status">
             <h2 class="p-2">Order ID: <b> {{order.orderNumber}} </b></h2>
-            <div class="status-square"></div>
+            <div class="status-square" [ngStyle]="{'background-color': getStatusColor(order.status)}"></div>
         </div>
         <div class="product-thumbnails p-3 flex gap-2">
             <img *ngFor="let item of order.items" [src]="item.image" alt="{{item.name}}" class="product-thumbnail">

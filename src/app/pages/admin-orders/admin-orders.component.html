@@ -3,7 +3,8 @@
 
         <div class="status">
             <h2 class="p-2">Order ID: <b> {{order.orderNumber}} </b></h2>
-            <div class="status-square"></div>
+            <div class="status-square" [ngStyle]="{'background-color': getStatusColor(order.status)}"></div>
+
         </div>
         <div class="status">
             <h2 class="p-2"><b> {{order.email}} </b></h2>

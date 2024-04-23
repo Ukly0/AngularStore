@@ -50,15 +50,18 @@
 }
 
 .no-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
   text-align: center;
+
+  
 }
 
 .no-message h1 {
-  font-size: 3em !important; /* Ajusta este valor a lo que necesites */
+  font-size: 6rem !important; /* Ajusta este valor a lo que necesites */
+line-height: 6rem;
 }
 
 .app-filters.show {

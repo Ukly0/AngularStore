@@ -35,7 +35,6 @@ p .status{
     padding: 0px 3px; ;
     border-radius: var(--borderRadio);
     border: var(--borde);
-    background-color: var(--colorAcento);
     box-shadow: var(--Sombra);
 }
 

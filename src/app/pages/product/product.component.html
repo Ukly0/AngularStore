@@ -37,7 +37,7 @@
           <span *ngFor="let theme of product.themes" class="categoria ">{{theme}}</span>
         </div>
 
-        <div *ngIf="countdown.days" class="countdown">
+        <div *ngIf="countdown.days && product.offerPrice  " class="countdown">
           <div class="days element">{{countdown.days}}d</div>
           <span>:</span>
           <div class="minutes element">{{countdown.minutes}}m</div>

@@ -341,7 +341,6 @@ hr {
 
 .wrapper {
   height: 4rem;
-  
   width: 100%;
   overflow: hidden;
   background-color: black;
@@ -398,6 +397,12 @@ hr {
   display: inline-block;
   color: black;
   font-size: 50px;
+ 
+}
+
+.marquee-content p{
+  
+  font-size: 250px;
 }
 
 .marquee.title p {
@@ -409,11 +414,16 @@ hr {
 }
 
 .fjapan{
-  font-family: var(--ffamiliabody2);
   margin: 0px 2rem;
   font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 800;
 }
 
+.fnormal{
+  font-family: var(--ffamiliabody);
+  font-weight: 1000;
+
+}
 @keyframes marquee {
   0% {
     transform: translate3d(0, 0, 0);

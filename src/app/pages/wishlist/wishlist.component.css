@@ -1,7 +1,7 @@
 .product-list {
     display: flex;
     flex-wrap: wrap;
-    height: auto;
+    height: 100vh;
     width: 100%;
     padding: 18px;
     justify-content: flex-start ;
@@ -25,6 +25,16 @@
     position: relative;
     
   }
+
+  .empty {
+    font-size: 100px !important; /* Ajusta el tamaño del texto */
+    line-height: 100px;
+    position: fixed; /* Hace que el elemento se posicione en relación con la ventana del navegador */
+    top: 50%; /* Centra el elemento verticalmente */
+    left: 50%; /* Centra el elemento horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta la posición exacta del elemento */
+    text-align: center; /* Alinea el texto al centro */
+}
 
 /* Para pantallas más pequeñas */
 @media (max-width: 600px) {

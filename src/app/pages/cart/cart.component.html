@@ -4,20 +4,20 @@
             <ng-container matColumnDef="product">
                 <th class="product-cell" *matHeaderCellDef>Product</th>
                 <td *matCellDef="let element" class="product-cell">
-                    <img src="{{element.variant.img}}" alt="product" />
+                    <img class="imgmobile" src="{{element.variant.img}}" alt="product" />
                 </td>
 
             </ng-container>
-            <ng-container matColumnDef="name">
-                <th *matHeaderCellDef>Name</th>
-                <td class="cart-cell" *matCellDef="let element">
-                    <span class="truncate max-w-xs block">{{element.variant.title}}</span>
+            <ng-container class="mobile" matColumnDef="name">
+                <th  class="mobile"*matHeaderCellDef>Name</th>
+                <td class="cart-cell mobile" *matCellDef="let element">
+                    <span class="truncate max-w-xs block mobile">{{element.variant.title}}</span>
                 </td>
 
             </ng-container>
-            <ng-container matColumnDef="price">
-                <th *matHeaderCellDef>Price</th>
-                <td class="cart-cell" *matCellDef="let element">
+            <ng-container  matColumnDef="price">
+                <th class="mobile" *matHeaderCellDef>Price</th>
+                <td class="cart-cell mobile" *matCellDef="let element">
                     {{element.variant.price | currency}}
                 </td>
 
@@ -60,10 +60,9 @@
             </p>
         </mat-card>
     </div>
-    
 </div>
 <div class="checkout">
-    <h2><b>Total:</b> ${{ totalPrice }}</h2>
+    <h2><b>Total:</b> ${{ totalPrice | number:'1.2-2' }}</h2>
     <button (click)="onCheckout()" class="button-checkout">
         Checkout
     </button>

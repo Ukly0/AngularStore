@@ -4,4 +4,7 @@
             <app-product-box [product]="product"></app-product-box>
         </div>
     </div>  
+    <h1 class="empty" *ngIf="products.length == 0"> 
+        Your Wishlist is Empty
+    </h1>
 </div>

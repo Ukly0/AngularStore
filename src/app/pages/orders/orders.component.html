@@ -13,9 +13,9 @@
             <h1>${{order.total}} </h1>
         </div>  
     </div>
-    <div *ngIf="!(orders | async)" class="no-orders-message">
-        <h1>You have no orders yet...</h1>
-    </div>
+    <h1 class="empty" *ngIf="!orders"> 
+        Your Orders are Empty {{orders.length}}
+    </h1>
     
 
 

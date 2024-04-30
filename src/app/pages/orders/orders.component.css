@@ -68,3 +68,15 @@ img {
   min-height: 3rem;
   background-color: var(--colorAcento);
 }
+
+.empty {
+  font-size: 100px !important; /* Ajusta el tamaño del texto */
+  line-height: 100px;
+  position: fixed; /* Hace que el elemento se posicione en relación con la ventana del navegador */
+  top: 50%; /* Centra el elemento verticalmente */
+  left: 50%; /* Centra el elemento horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta la posición exacta del elemento */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+

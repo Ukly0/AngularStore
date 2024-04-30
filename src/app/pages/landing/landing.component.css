@@ -11,11 +11,13 @@
 }
 
 .head .images{
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 40%;
   background-color: var(--colorAcento3);
   height: auto;
-  display: flex;
+  
   justify-content: center;
   align-items: center;
   overflow: hidden; /* Agrega esta línea */
@@ -380,7 +382,7 @@ align-content: center;
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100%;
+  height: auto;
   justify-content: space-between;
   border-bottom: var(--borde);
 }
@@ -492,7 +494,7 @@ align-content: center;
 .aboutus h1{
   font-size: 50px !important;
   margin: 0px;
-  
+  line-height: 50px;
 }
 
 .passion{
@@ -610,4 +612,153 @@ align-content: center;
 
 .no-delay {
   animation-delay: 0s !important;
+}
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .mobile{
+    display: flex;
+  }
+
+  h1 .text{
+    font-size: 100px;
+    line-height: 100px;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    margin-top: 2rem;
+    color: white;
+  }
+
+  .japan{
+    position: relative;
+    margin-bottom: 450px;
+    margin-top: 135px ;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .button_mobile{
+
+    width: 160px;
+    height: 70px;
+    margin-bottom: 70px;
+    background-color: white;
+    border: var(--borde);
+    border-radius: var(--borderRadio);
+    box-shadow: var(--Sombra);
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+  .review .image{
+    display: flex;
+    padding-top: 5rem;
+    width: auto;
+    height: auto;
+    border-bottom: var(--borde);
+    border-right: none;
+    
+  }
+
+  .reviews .info{
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .review .info-image{
+    flex-direction: column;
+  }
+
+  .head-action {
+    display: none;
+  }
+
+  .head{
+    height: 745px;
+    background-color: var(--colorAcento);
+  }
+
+  .head .images {
+    display: flex;
+    flex-direction: space-between;
+      width: 100%;
+      background-color: var(--colorAcento);
+  }
+
+
+
+  .changing-text {
+    font-size: 50px;
+    position: initial;
+    width: 100%;
+  }
+
+  .offers-counter{
+    width: 90% !important;
+    height: 7rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .countdown{
+    font-family: var(--ffamiliatitulo);
+      display: flex;
+      align-items: center;
+      font-size: 64px;
+      line-height: 100px;
+      font-weight: bold;
+      color: #000;
+      
+      border-radius: 5px;
+      animation: fadeIn 1s ease-in-out;
+      justify-content: center;
+      gap: 2px;
+  }
+
+  .review{
+    flex-direction: column;
+  }
+
+  .reviews{
+    height: 100vh;
+  }
+  .benefits{
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .benefit{
+    width: 100%;
+    padding-bottom: 2rem;
+   
+    border-right: 0px;
+    border-left: 0px;
+  }
+
+  .center{
+    border-right: none !important;
+    border-left: none !important;
+    border-top: var(--borde);
+    border-bottom: var(--borde);
+  }
+
+  .aboutus{
+    flex-direction: column;
+  }
+
+  .aboutus .images{
+    width: 90%;
+  }
+
+  .aboutus .info{
+    width: 80%;
+  }
 }

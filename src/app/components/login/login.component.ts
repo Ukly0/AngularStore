@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   lname: string = '';
   fname: string = '';
   isRegistering = false;
+  errorMessage: string = ''	;
   constructor(
     private formBuilder: FormBuilder, 
     private authService: AuthService,
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
       })
       .catch((error) => {
         // Aquí puedes manejar los errores durante el inicio de sesión
+        this.errorMessage = 'Failed to login. Please check your email and password.'
         console.error('Error en el inicio de sesión', error);
       });
   }
@@ -88,7 +90,7 @@ export class LoginComponent implements OnInit {
     fname: ['', [Validators.required, Validators.maxLength(15), Validators.pattern("^[a-zA-Z]+$")]],
     lname: ['', [Validators.required, Validators.maxLength(15), Validators.pattern("^[a-zA-Z]+$")]],
     email: ['',  [Validators.required, Validators.email]],
-    password: ['',  Validators.required]
+    password: ['',  [Validators.required, Validators.minLength(6)]]
   });
 
   loginForm = this.formBuilder.group({

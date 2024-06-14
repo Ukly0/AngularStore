@@ -1,14 +1,12 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 import { GoogleAuthProvider, FacebookAuthProvider } from "@angular/fire/auth";
 import { Observable, of, switchMap } from "rxjs";
-import { AngularFireDatabase } from "@angular/fire/compat/database";
 import { UserService } from "./user.service";
-import { getAuth } from "firebase/auth";
 import { User } from "../models/user.model";
 
-import { initializeApp } from "firebase/app";
 
 @Injectable({
   providedIn: "root",

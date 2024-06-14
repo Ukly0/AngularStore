@@ -74,8 +74,8 @@ exports.createCheckoutSession = async (req, res) => {
             };
           }),
         mode: "payment",
-        success_url: "http://localhost:4200/success?session_id={CHECKOUT_SESSION_ID}",
-        cancel_url: "http://localhost:4242/cancel.html",
+        success_url: "https://ukiy0-7lwmd6wgrq-no.a.run.app/success?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url: "https://ukiy0-7lwmd6wgrq-no.a.run.app/cancel.html",
         });
 
         res.status(200).json(session);

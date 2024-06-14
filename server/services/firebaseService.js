@@ -12,7 +12,8 @@ exports.saveOrder = async (orderData) => {
   var db = admin.database();
   var ref = db.ref('orders');
   var newOrderRef = ref.push();
-  console.log('newOrderRef');
+  console.log(orderData.items[0].image);
+  console.log(orderData);
   await newOrderRef.set(orderData);
   return newOrderRef.key;
 };

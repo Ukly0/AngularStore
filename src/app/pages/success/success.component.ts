@@ -4,6 +4,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-success',
   templateUrl: './success.component.html',
+  styleUrls: ['./success.component.css']
 })
 export class SuccessComponent implements OnInit {
 

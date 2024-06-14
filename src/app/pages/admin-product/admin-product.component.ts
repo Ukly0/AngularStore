@@ -83,7 +83,7 @@ export class AdminProductComponent implements OnInit, OnDestroy {
                 product.images = this.imageUrls; // Añade las URLs de las imágenes al producto
                 if (this.id) this.productoService.update(this.id, product);
                 else this.productoService.create(product);
-                this.router.navigate(["/admin/list-product"]);
+                this.router.navigate(["products-list"]);
               }
             })
           );
@@ -96,7 +96,7 @@ export class AdminProductComponent implements OnInit, OnDestroy {
       if (this.id) this.productoService.update(this.id, product);
       else this.productoService.create(product);
 
-      this.router.navigate(["/admin/list-product"]);
+      this.router.navigate(["products-list"]);
     }
   }
 

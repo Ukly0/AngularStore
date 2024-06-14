@@ -122,9 +122,12 @@ button.boton_cancelar {
     align-items: center;
     font-family: var(--ffamiliabody);
     width: 33.3%;
-    .button{
+    
+}
 
-        border: var(--borde);
+.navmenu-desktop .button {
+
+    border: var(--borde);
         border-radius: var(--borderRadio);
         padding: 0.5rem 1rem;
         margin: 0 0.75rem;
@@ -132,17 +135,21 @@ button.boton_cancelar {
         align-content: center;
         justify-content: center;
         align-items: center;
-        
-        .mat-badge-content{
-            border-radius: var(--borderRadio);
+}
+
+
+.navmenu-desktop .cart {
+
+    background-color:  var(--colorAcento);
+
+}
+
+.navmenu-desktop .button .mat-badge-content {
+
+    border-radius: var(--borderRadio);
             background-color:  black ;
             margin: 0.25rem;
             color: whitesmoke;
-        }
-    }
-    .cart{
-        background-color:  var(--colorAcento);
-    }
 }
 
 

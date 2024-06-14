@@ -115,7 +115,7 @@ export class CartComponent implements OnInit {
 
   onCheckout() {
     this.http
-      .post("http://localhost:4242/payment/checkout", {
+      .post("https://ukiy0-7lwmd6wgrq-no.a.run.app/payment/checkout", {
         items: this.cartItems,
         email: this.user?.email,
       })
@@ -134,7 +134,7 @@ export class CartComponent implements OnInit {
             // Aquí puedes realizar otras acciones, como mostrar un mensaje al usuario
   
             // Recuperar los detalles de la sesión de checkout
-            const sessionRes = await fetch(`http://localhost:4242/payment/checkout-session?sessionId=${res.id}`);
+            const sessionRes = await fetch(`https://ukiy0-7lwmd6wgrq-no.a.run.app/payment/checkout-session?sessionId=${res.id}`);
             const session = await sessionRes.json();
             let cart: Cart = {cartItems : this.cartItems};
             let order = {cart: cart, status: 'pending', datePlaced: new Date().getTime(), shipping: 'On hold' };

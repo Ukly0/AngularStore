@@ -19,6 +19,15 @@ input{
     box-shadow: var(--Sombra) !important;;
 }
 
+.error_login{
+  width: 100%;;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-top: var(--borde);
+  font-weight: 800;
+  font-size: large;
+  
+}
 .clickable{
     border-bottom: 2px solid black;    
     cursor: pointer;

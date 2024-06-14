@@ -13,11 +13,13 @@
     display: flex;
     justify-content: center;
     padding: 1rem;
-    img{
-        width: 100px;
-        height: auto;
-        align-items: center;
-    }
+    
+}
+
+.footer__container__logo img{
+    width: 100px;
+    height: auto;
+    align-items: center;
 }
 
 .footer__container__links{
@@ -28,24 +30,25 @@
     flex-wrap: wrap;
     font-size: 20px;
     font-weight: 700;
-    padding: 1rem;
-    a{
-        padding: 0.5rem;
-        background-color: var(--colorAcento);
-        border: var(--borde);
-        border-radius: var(--borderRadio);
-
-    }
-
-    
+    padding: 1rem;    
 }
+
+.footer__container__links a {
+    padding: 0.5rem;
+    background-color: var(--colorAcento);
+    border: var(--borde);
+    border-radius: var(--borderRadio);
+}
+
 .footer__container__social{
     display: flex;
     justify-content: center;
     padding: 1rem;
     gap: 2rem;
-    img{
-        scale: 2;
-    }
+    
+}
+
+.footer__container__social img{
+    scale: 2;
 }
 

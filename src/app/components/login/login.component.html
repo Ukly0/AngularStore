@@ -33,7 +33,9 @@
         </span>
         
         
-            
+        <div *ngIf="errorMessage" class="error_login">
+            {{ errorMessage }}
+        </div>   
         <button  class="loginbutton" [disabled]="loginForm.invalid" (click)="signIn()" type="submit">Sign In</button>
     </form>
 
@@ -60,8 +62,8 @@
             
         </div>
         <input type="password" formControlName="password" [(ngModel)]="password" placeholder="password"  required>
-        <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
-                Password is required.
+        <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].touched && registerForm.controls['password'].dirty)">
+                Valid password is required.
         </div>
     
         <span class="clickable" (click)="toggleRegistering()">
@@ -69,7 +71,7 @@
         </span>
         
         
-            
+         
         <button  class="loginbutton" [disabled]="registerForm.invalid" (click)="register()" type="submit">Register</button>
     </form>
 

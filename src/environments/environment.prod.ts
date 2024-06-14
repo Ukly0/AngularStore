@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  hostname: '0.0.0.0',
   firebase:{
     apiKey: "AIzaSyB0kCQ6woUj9jZuk6nrnQPMhZg2o8GnfFA",
 

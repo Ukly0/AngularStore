@@ -6,8 +6,8 @@ import { BehaviorSubject } from "rxjs";
   providedIn: "root",
 })
 export class CategoryService {
-  private selectedCategorySource = new BehaviorSubject<string | null>(null);
-  private selectedThemeSource = new BehaviorSubject<string | null>(null);
+  selectedCategorySource = new BehaviorSubject<string | null>(null);
+  selectedThemeSource = new BehaviorSubject<string | null>(null);
 
   selectedCategory$ = this.selectedCategorySource.asObservable();
   selectedTheme$ = this.selectedThemeSource.asObservable();

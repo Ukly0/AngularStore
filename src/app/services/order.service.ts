@@ -80,7 +80,7 @@ export class OrderService {
 
   sendEmail(order: any, changes: any) {
     this.http
-      .post("http://localhost:4242/email/update", {
+      .post("http://ukiy0-7lwmd6wgrq-no.a.run.app/email/update", {
         order: order,
         changes: changes,
         email: order.email

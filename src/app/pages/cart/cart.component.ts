@@ -131,7 +131,6 @@ export class CartComponent implements OnInit {
           } else {
             // Aquí puedes asumir que la operación de checkout fue exitosa
             console.log('Checkout successful');
-            // Aquí puedes realizar otras acciones, como mostrar un mensaje al usuario
   
             // Recuperar los detalles de la sesión de checkout
             const sessionRes = await fetch(`https://ukiy0-7lwmd6wgrq-no.a.run.app/payment/checkout-session?sessionId=${res.id}`);

@@ -33,10 +33,21 @@
   .productinf img {
     display: none;
   }
+
+ 
 }
 @media only screen and (max-width: 767px) {
   .productimg {
     display: none; /* Cambia a un diseño de columna para pantallas más pequeñas */
+  }
+
+  .countdown {
+    font-size: 36px !important;
+
+  }
+
+  .countdown .element {
+    padding: 16px !important;
   }
   .productinf {
     border-left: none;

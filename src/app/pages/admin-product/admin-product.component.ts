@@ -75,7 +75,7 @@ export class AdminProductComponent implements OnInit, OnDestroy {
           const snapshotChanges$ = task.snapshotChanges().pipe(
             finalize(async () => {
               const url = await lastValueFrom(fileRef.getDownloadURL());
-              console.log(url); // this is the URL of the image that you can use in your app
+              
               this.imageUrls.push(url); // Guarda la URL de descarga en imageUrls
 
               if (this.files && this.imageUrls.length === this.files.length) {
@@ -106,7 +106,7 @@ export class AdminProductComponent implements OnInit, OnDestroy {
     for (let i = 0; i < newFiles.length; i++) {
       const file: File = newFiles[i] as File;
 
-      // Generate a preview of the image
+    
       const reader = new FileReader();
       reader.onload = (e) => {
         if (e.target) {
@@ -116,18 +116,18 @@ export class AdminProductComponent implements OnInit, OnDestroy {
       reader.readAsDataURL(file);
     }
 
-    // Add the new files to the existing files array
+    
     this.files = [...this.files, ...(newFiles as File[])];
   }
 
   onDelete(index: number) {
-    // Check if index is valid
+    
     if (
       index >= 0 &&
       index < this.files.length &&
       index < this.imagePreviews.length
     ) {
-      // Remove the image from files and imagePreviews
+      
       this.files.splice(index, 1);
       this.imagePreviews.splice(index, 1);
 

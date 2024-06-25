@@ -21,8 +21,10 @@ export class WishlistComponent implements OnInit {
   ngOnInit(): void {
     
     this.authkey = this.authService.userKey;
+    console.log(this.authkey)
     this.getWishlist();
-    
+    console.log(this.authkey)
+    console.log(this.products.length)
   }
 
   getWishlist(): void {

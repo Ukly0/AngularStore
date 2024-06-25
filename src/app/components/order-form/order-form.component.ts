@@ -39,6 +39,8 @@ export class OrderFormComponent implements OnInit {
     }
 
     this.orderService.update(this.data.order.orderNumber,this.data.order);
+    this.dialogRef.close(); // Close the dialog
+
   }
 
   deleteOrder(orderId: string){

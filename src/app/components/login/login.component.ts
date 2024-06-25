@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   fname: string = '';
   isRegistering = false;
   errorMessage: string = ''	;
+    formGroup: any;
   constructor(
     private formBuilder: FormBuilder, 
     private authService: AuthService,
@@ -61,6 +62,7 @@ export class LoginComponent implements OnInit {
       })
       .catch((error) => {
         // Aquí puedes manejar los errores durante el registro
+        this.errorMessage = 'Failed to Register. Please check your email and password.'
         console.error('Error en el registro', error);
       });
   }
